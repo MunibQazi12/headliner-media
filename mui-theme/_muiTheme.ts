@@ -364,7 +364,7 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
                 borderRadius: "50px",
 
                 "&:hover": {
-                  background: `${primaryColors.black}`,
+                  background: `${primaryColors.secondary}`,
                   color: primaryColors?.white
                 }
               };

@@ -44,15 +44,15 @@ export default function Header({
   const navItems = [
     {
       name: "Dry Ice",
-      route: "javascript:void(0)"
+      route: "dry-ice"
     },
     {
       name: "Why Us?",
-      route: "javascript:void(0)"
+      route: "why-us"
     },
     {
       name: "About",
-      route: "javascript:void(0)"
+      route: "about"
     }
   ];
 
@@ -211,13 +211,15 @@ export default function Header({
                   <Typography variant="caption">866-709-9045</Typography>
                 </CustomButtonPrimary>
 
-                <CustomButtonPrimary
-                  type="button"
-                  variant="contained"
-                  color="secondary"
-                >
-                  <Typography variant="caption">Contact Us</Typography>
-                </CustomButtonPrimary>
+                <Link href="/dashboard">
+                  <CustomButtonPrimary
+                    type="button"
+                    variant="contained"
+                    color="secondary"
+                  >
+                    <Typography variant="caption">Contact Us</Typography>
+                  </CustomButtonPrimary>
+                </Link>
               </Stack>
 
               <Box className="loginBtn">

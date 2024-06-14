@@ -24,19 +24,19 @@ const navItems = [
     submenu: [
       {
         name: "About Us",
-        route: "#"
+        route: "/about"
       },
       {
         name: "FAQs",
-        route: "#"
+        route: "/faq"
       },
       {
         name: "Why Us?",
-        route: "#"
+        route: "/why-us"
       },
       {
         name: "Industries",
-        route: "#"
+        route: "/industries"
       },
       {
         name: "Services",
@@ -48,7 +48,7 @@ const navItems = [
       },
       {
         name: "Contact Us",
-        route: "#"
+        route: "/dashboard/support"
       }
     ]
   },
