@@ -1,0 +1,19 @@
+import AgricultureMain from "@/components/AgricultureMain/AgricultureMain";
+import ClientTestimonial from "@/components/ClientTestimonial/ClientTestimonial";
+import NeedCustomer from "@/components/NeedCustomer/NeedCustomer";
+import WhyDryIceSection from "@/components/WhyDryIceSection/WhyDryIceSection";
+import Wrapper from "@/layout/wrapper/Wrapper";
+import Box from "@mui/material/Box";
+
+export default function agriculture() {
+  return (
+    <Wrapper>
+      <Box className="agricultureMain_wrapper">
+        <AgricultureMain />
+        <NeedCustomer />
+        <WhyDryIceSection />
+        <ClientTestimonial />
+      </Box>
+    </Wrapper>
+  );
+}
