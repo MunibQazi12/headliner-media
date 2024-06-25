@@ -3,13 +3,13 @@ import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 
 export const SeoTopMainWrapper = styled(Box)`
-  padding-bottom: 40px;
+  padding: 40px;
 
   @media (max-width: 899px) {
-    padding-bottom: 30px;
+    padding: 30px;
   }
   @media (max-width: 599px) {
-    padding-bottom: 30px;
+    padding: 30px;
   }
   .seoMain_inner {
     position: relative;

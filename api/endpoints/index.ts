@@ -12,19 +12,20 @@ export const endpoints = {
   auth: {
     signup: "user/existence",
     signUpProfile: "user/signup",
-    login:"user/login",
+    login: "user/login",
     profileDetails: "user/profile/get",
     profileUpdate: "user/profile/update"
   },
   cms: {
     about: "aboutpolicy/details",
     faq: "faq/all"
-  }
+  },
+  seo: (slug: string) => `seo/${slug}`
 };
 
 export const sucessNotificationEndPoints = [
   // endpoints.auth.signup,
   endpoints.auth.signUpProfile,
   endpoints.auth.login,
-  endpoints.auth.profileUpdate,
+  endpoints.auth.profileUpdate
 ];

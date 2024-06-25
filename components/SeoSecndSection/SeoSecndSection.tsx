@@ -9,7 +9,11 @@ import Typography from "@mui/material/Typography";
 import CommonCart from "../CommonCart/CommonCart";
 import CommonHeading from "../CommonHeading/CommonHeading";
 
-const SeoSecndSection = () => {
+type SeoSecndSection = {
+  meta_heading?: string;
+};
+
+const SeoSecndSection = ({ meta_heading }: SeoSecndSection) => {
   return (
     <HomeAboutStyled>
       <Container fixed className="cus_container">
@@ -20,7 +24,11 @@ const SeoSecndSection = () => {
         </Typography>
 
         <Box className="deliveredProduct">
-          <CommonHeading borderHeading="Affordable Dry Ice Delivery in Philadelphia, PA" />
+          <CommonHeading
+            borderHeading={
+              meta_heading || "Affordable Dry Ice Delivery in Philadelphia, PA"
+            }
+          />
         </Box>
         <Box className="allCardBoxWrap">
           <Grid container spacing={2}>

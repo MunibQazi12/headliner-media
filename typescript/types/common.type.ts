@@ -1,4 +1,4 @@
-export type CommonButtonType = {
+type CommonButtonType = {
   children: JSX.Element;
   variant?: "text" | "outlined" | "contained";
   disabled: boolean;
@@ -19,7 +19,7 @@ export type CommonButtonType = {
   loading?: boolean;
 };
 
-export type userData = {
+type userData = {
   _id?: string;
   role: {
     _id?: string;
@@ -45,8 +45,27 @@ export type userData = {
   about_title?: string;
   about_description?: string;
   cover_picture?: string;
-}
+};
 
+type seoData = {
+  id: number;
+  slug: string;
+  meta_title: string;
+  meta_description: string;
+  h1_tag: string;
+  h2_tag: string;
+  p_tag: string;
+  city: string;
+  state: string;
+  state_code: string;
+  type: string;
+  zip_codes: string;
+  latitude: number;
+  longitude: number;
+};
 
+type LoadingType = {
+  isLoading: boolean;
+};
 
-export {};
+export type { CommonButtonType, LoadingType, seoData, userData };

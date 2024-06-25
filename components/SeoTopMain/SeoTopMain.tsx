@@ -8,18 +8,26 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 
-export default function SeoTopMain() {
+type SeoTopMainType = {
+  heading?: string;
+  meta_description?: string;
+};
+
+export default function SeoTopMain({
+  heading,
+  meta_description
+}: SeoTopMainType) {
   return (
     <SeoTopMainWrapper>
       <Box className="seoMain_inner">
         <Container fixed className="cus_container">
           <Box className="wrapper_mainInfo">
             <Grid container spacing={3} alignItems="center">
-              <Grid item lg={6} xs={12}>
+              <Grid item lg={8} xs={12}>
                 <Box className="wrapper_textInfo">
                   <Typography variant="h1">
-                    Get Premium Dry Ice in Philadelphia, PA Delivered Right to
-                    You.
+                    {heading ||
+                      "Get Premium Dry Ice in Philadelphia, PA Delivered Right to You."}
                   </Typography>
                   <Typography variant="body1" className="subText">
                     Need high quality dry ice? EMORY manufactures and delivers
@@ -28,7 +36,8 @@ export default function SeoTopMain() {
                   </Typography>
                   <Box className="wrapper_form">
                     <Typography variant="body1">
-                      Where do you need dry ice delivered to in Philadelphia?
+                      {meta_description ||
+                        "Where do you need dry ice delivered to in Philadelphia?"}
                     </Typography>
                     <Box className="formOnly">
                       <InputFieldCommon placeholder="Enter Address..." />
@@ -42,7 +51,7 @@ export default function SeoTopMain() {
                   </Box>
                 </Box>
               </Grid>
-              <Grid item lg={6} xs={12}>
+              <Grid item lg={4} xs={12}>
                 <Box className="wrapper_img">
                   <Image
                     src={assest.seoMainImg1}

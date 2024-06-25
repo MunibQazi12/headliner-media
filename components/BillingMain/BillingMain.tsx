@@ -1,13 +1,6 @@
+import CheckoutPage from "@/components/Checkout/Checkout";
 import { BillingMainWrapper } from "@/styles/StyledComponents/BillingMainWrapper";
-import InputFieldCommon from "@/ui/CommonInput/CommonInput";
-import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
-import DotBtnMain from "@/ui/Icons/DotBtnMain";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Typography from "@mui/material/Typography";
 import * as React from "react";
 import CommonDashBoardTitle from "../CommonDashBoardTitle/CommonDashBoardTitle";
 
@@ -28,7 +21,8 @@ export default function BillingMain() {
           btnText="+ Add Payment Method"
           isButton
         />
-        <Box className="billingInner">
+        <CheckoutPage />
+        {/* <Box className="billingInner">
           <Grid container spacing={3}>
             <Grid item lg={7} xs={12}>
               <Box className="formWrapper">
@@ -126,7 +120,7 @@ export default function BillingMain() {
               </Box>
             </Grid>
           </Grid>
-        </Box>
+        </Box> */}
       </Box>
     </BillingMainWrapper>
   );
