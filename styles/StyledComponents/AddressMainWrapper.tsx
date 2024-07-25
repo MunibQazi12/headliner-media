@@ -12,12 +12,15 @@ export const AddressMainWrapper = styled(Box)`
         padding-top: 10px;
       }
       .wrapper_mainBoxCart {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         position: relative;
         border: 1px solid ${primaryColors.primary};
-        padding: 20px 20px 80px 30px;
+        padding: 16px 24px;
         border-radius: 5px;
         @media (max-width: 1399px) {
-          padding: 20px;
+          padding: 16px 24px;
         }
 
         @media (max-width: 899px) {
@@ -28,7 +31,7 @@ export const AddressMainWrapper = styled(Box)`
           display: flex;
           align-items: center;
           justify-content: flex-end;
-          margin-left: auto;
+          align-items: center;
           button {
             width: 66px;
             height: 66px;
@@ -50,15 +53,13 @@ export const AddressMainWrapper = styled(Box)`
           }
         }
         .title {
-          font-weight: 700;
+          font-weight: 400;
           font-size: 25px;
           color: ${primaryColors.primary};
-          margin-bottom: 20px;
           max-width: 100%;
 
           @media (max-width: 1399px) {
             font-size: 20px;
-            margin-bottom: 12px;
           }
 
           @media (max-width: 599px) {

@@ -9,15 +9,15 @@ export const dashboardSidebarMenu = [
   },
   {
     menuText: "Orders",
-    route: "#"
+    route: "/dashboard/order/"
   },
   {
     menuText: "Billing",
-    route: "#"
+    route: "/dashboard/billing/"
   },
   {
     menuText: "Addresses",
-    route: "#"
+    route: "/dashboard/address/"
   },
   {
     menuText: "Change password",

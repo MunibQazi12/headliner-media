@@ -17,7 +17,13 @@ export default function CommonCart({ linkPath, imgPath, textMain }: cartProps) {
       <Box className="wrapperInfoBox">
         <figure>
           <Link href={linkPath}>
-            <Image src={imgPath} alt="cart-image" width={440} height={440} />
+            <Image
+              src={imgPath}
+              alt="cart-image"
+              width={440}
+              height={440}
+              loader={({ src }) => src}
+            />
           </Link>
         </figure>
         <Link href={linkPath}>{textMain}</Link>

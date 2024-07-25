@@ -1,6 +1,7 @@
 import { IFormInput } from "@/interface/common.interface";
 
 import { IgetSignUpQuery } from "@/interface/apiresp.interfaces";
+import { SignInFormValues, SignUpFormValues } from "@/types/common.type";
 import axiosInstance from "../axiosInstance";
 import { endpoints } from "../endpoints";
 
@@ -11,8 +12,8 @@ export const signUpMutation = async (body: IFormInput) => {
   );
   return res;
 };
-export const loginMutation = async (body: IFormInput) => {
-  const res = await axiosInstance.post<IgetSignUpQuery>(
+export const loginMutation = async (body: SignInFormValues) => {
+  const res = await axiosInstance.post<{ data: { token: string } }>(
     endpoints.auth.login,
     body
   );
@@ -24,7 +25,7 @@ export const GetProfileDetails = async () => {
   );
   return res;
 };
-export const signUpProfileMutation = async (body: IFormInput) => {
+export const signUpProfileMutation = async (body: SignUpFormValues) => {
   const res = await axiosInstance.post<IgetSignUpQuery>(
     endpoints.auth.signUpProfile,
     body

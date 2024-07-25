@@ -4,16 +4,16 @@ import Box from "@mui/material/Box";
 
 export const DryIcePelletsMainWrapper = styled(Box)`
   .wrapperMainPellet {
-    position: relative;
+    /* position: relative; */
     .middlePartMain {
-      position: relative;
-      margin-bottom: 60px;
+      /* position: relative; */
+      margin-bottom: 24px;
 
       @media (max-width: 1399px) {
-        margin-bottom: 40px;
+        margin-bottom: 28px;
       }
       @media (max-width: 899px) {
-        margin-bottom: 20px;
+        margin-bottom: 12px;
       }
       .imageWrapMain {
         position: relative;
@@ -52,8 +52,13 @@ export const DryIcePelletsMainWrapper = styled(Box)`
           }
         }
 
+        .address {
+          width: 100%;
+        }
+
         .sizeCart {
           position: relative;
+          margin-bottom: 42px;
           .title {
             font-weight: 700;
             font-size: 28px;
@@ -69,8 +74,10 @@ export const DryIcePelletsMainWrapper = styled(Box)`
 
           .radionList {
             .MuiRadioGroup-root {
+              display: flex;
+              flex-wrap: wrap;
               flex-direction: row;
-              justify-content: space-between;
+              gap: 10px;
 
               @media (max-width: 899px) {
                 flex-wrap: wrap;
@@ -147,6 +154,7 @@ export const DryIcePelletsMainWrapper = styled(Box)`
           }
           .quantityFld {
             position: relative;
+            margin-right: 20px;
             .MuiInputBase-root {
               min-width: auto;
               width: 120px;
@@ -187,27 +195,6 @@ export const DryIcePelletsMainWrapper = styled(Box)`
               }
             }
           }
-          .wrapper_btn {
-            position: relative;
-            margin-left: 20px;
-            width: 100%;
-
-            @media (max-width: 899px) {
-              width: 100%;
-              margin: 10px 0 0;
-            }
-            button {
-              width: 100%;
-              height: 61px;
-              padding: 10px 20px;
-              border-radius: 10px;
-
-              @media (max-width: 899px) {
-                height: 50px;
-                font-size: 16px;
-              }
-            }
-          }
         }
         .shipmentDetails {
           position: relative;
@@ -236,6 +223,26 @@ export const DryIcePelletsMainWrapper = styled(Box)`
               color: ${primaryColors.primary};
             }
           }
+        }
+      }
+    }
+    .wrapper_btn {
+      position: relative;
+      width: 100%;
+
+      @media (max-width: 899px) {
+        width: 100%;
+        margin: 10px 0 0;
+      }
+      button {
+        width: 100%;
+        height: 61px;
+        padding: 10px 20px;
+        border-radius: 10px;
+
+        @media (max-width: 899px) {
+          height: 50px;
+          font-size: 16px;
         }
       }
     }

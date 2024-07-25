@@ -11,8 +11,8 @@ export const mediaUrl = (url: string) => {
 export const endpoints = {
   auth: {
     signup: "user/existence",
-    signUpProfile: "user/signup",
-    login: "user/login",
+    signUpProfile: "register",
+    login: "login",
     profileDetails: "user/profile/get",
     profileUpdate: "user/profile/update"
   },
@@ -20,7 +20,18 @@ export const endpoints = {
     about: "aboutpolicy/details",
     faq: "faq/all"
   },
-  seo: (slug: string) => `seo/${slug}`
+  seo: (slug: string) => `seo/${slug}`,
+  products: {
+    fetchAll: "products",
+    fetchOne: (slug: string) => `products/${slug}`,
+    getDistance: "products/distance"
+  },
+  order: {
+    purchase: "order/purchase",
+    fetchAll: "order"
+  },
+  addresses: "addresses",
+  payment: { paymentMethod: "payment/payment-method" }
 };
 
 export const sucessNotificationEndPoints = [

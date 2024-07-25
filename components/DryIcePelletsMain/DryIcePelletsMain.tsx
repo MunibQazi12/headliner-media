@@ -1,21 +1,28 @@
-import assest from "@/json/assest";
+import { useAddresses } from "@/hooks/react-query/useAddress";
+import { usePurchaseCreateMutation } from "@/hooks/react-query/useOrder";
+import { useOrderDistanceMutation } from "@/hooks/react-query/useProduct";
 import { faqMainListTw } from "@/json/mock/accordianFaq.mock";
 import { DryIcePelletsMainWrapper } from "@/styles/StyledComponents/DryIcePelletsMainWrapper";
+import { primaryColors } from "@/themes/_muiPalette";
+import { ProductAttributeData, ProductData } from "@/types/common.type";
 import InputFieldCommon from "@/ui/CommonInput/CommonInput";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
+import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Grid from "@mui/material/Grid";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
+import MenuItem from "@mui/material/MenuItem";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
+import Select from "@mui/material/Select";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import Typography from "@mui/material/Typography";
+import { calculateFee } from "helper/feeCalculator";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import * as React from "react";
 import { useState } from "react";
 import CommonFaq from "../CommonFaq/CommonFaq";
@@ -25,6 +32,38 @@ interface TabPanelProps {
   index: number;
   value: number;
 }
+
+interface DryIcePelletsMain {
+  product: ProductData;
+  product_attribute: ProductAttributeData[];
+}
+
+const ItemGroupTitle = styled(Box)`
+  font-weight: 700;
+  font-size: 28px;
+  color: #${primaryColors.primary};
+  margin-bottom: 16px;
+  @media (max-width: 1499px) {
+    font-size: 22px;
+  }
+  @media (max-width: 1399px) {
+    font-size: 20px;
+  }
+`;
+
+const ItemGroupDesc = styled(Box)`
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 60px;
+  color: #${primaryColors.primary};
+  padding: 16px 16px 64px;
+  @media (max-width: 1499px) {
+    font-size: 44px;
+  }
+  @media (max-width: 1399px) {
+    font-size: 40px;
+  }
+`;
 
 function CustomTabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
@@ -49,19 +88,154 @@ function a11yProps(index: number) {
   };
 }
 
-export default function DryIcePelletsMain() {
-  const [addValue, setAddValue] = useState(50);
+export default function DryIcePelletsMain({
+  product,
+  product_attribute
+}: DryIcePelletsMain) {
+  const router = useRouter();
+  const getOrderDistanceMutation = useOrderDistanceMutation();
+  const orderPurchaseMutate = usePurchaseCreateMutation();
+  const [value, setValue] = useState(0);
+  const [selectedDropdownValue, setSelectedDropdownValue] = useState("");
+  const [selectedAttribute, setSelectedAttribute] = useState<number | null>(0);
+  const [quantity, setQuantity] = useState<number>(50);
+  const [fee, setFee] = useState<number>(0);
+  const [distance, setDistance] = useState(0);
+  const [agency, setAgency] = useState<any>(0);
+  const [origin, setOrigin] = useState<any>({ lat: 0, lng: 0 });
+  const [destination, setDestination] = useState<any>({ lat: 0, lng: 0 });
+
+  const navigateTo = (path) => {
+    router.push(path);
+  };
+
   const handelAddQut = () => {
-    setAddValue(addValue + 1);
+    setQuantity(quantity + 1);
   };
   const handelDeleteQut = () => {
-    setAddValue(addValue - 1);
+    setQuantity(quantity - 1);
   };
-  const [value, setValue] = React.useState(0);
+
+  const handleDropdownChange = (event) => {
+    setSelectedDropdownValue(event.target.value);
+  };
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
+
+  const handlePurchase = () => {
+    orderPurchaseMutate.mutate(
+      {
+        agency_id: agency.id,
+        dest: selectedDropdownValue,
+        quantity,
+        product_id: selectedAttribute
+      },
+      {
+        onSuccess: () => {
+          navigateTo("/dashboard/order/");
+          alert("payment purchased successfully!");
+        },
+        onError: (error) => {
+          // Error handling if needed
+        }
+      }
+    );
+  };
+
+  const onSubmit = () => {
+    getOrderDistanceMutation.mutate(
+      {
+        location: selectedDropdownValue
+      },
+      {
+        onSuccess: (data: any) => {
+          setAgency(data?.data.agency);
+          setOrigin(data?.data.origination);
+          setDestination(data?.data.destination);
+        },
+        onError: (error) => {
+          // Error handling if needed
+        }
+      }
+    );
+  };
+
+  const { data } = useAddresses();
+  const addresses = data?.data.data || [];
+
+  const calculateAndDisplayRoute = (directionsService, directionsRenderer) => {
+    directionsService.route(
+      {
+        origin: new window.google.maps.LatLng(origin.lat, origin.lng),
+        destination: new window.google.maps.LatLng(
+          destination.lat,
+          destination.lng
+        ),
+        travelMode: window.google.maps.TravelMode.DRIVING
+      },
+      (response, status) => {
+        if (status === "OK") {
+          directionsRenderer.setDirections(response);
+          const route = response.routes[0];
+          setDistance(route.legs[0].distance.text);
+          console.log(route.legs[0].distance);
+          setFee(
+            calculateFee(route.legs[0].distance.value * 0.000621371, quantity)
+          );
+        } else {
+          window.alert(`Directions request failed due to ${status}`);
+        }
+      }
+    );
+  };
+
+  const initMap = () => {
+    const map = new window.google.maps.Map(document.getElementById("map"), {
+      zoom: 7,
+      center: origin
+    });
+
+    const directionsService = new window.google.maps.DirectionsService();
+    const directionsRenderer = new window.google.maps.DirectionsRenderer();
+    directionsRenderer.setMap(map);
+
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
+  };
+
+  const loadGoogleMapsScript = () => {
+    const script = document.createElement("script");
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`;
+    script.async = true;
+    script.defer = true;
+    script.onload = initMap;
+    document.head.appendChild(script);
+  };
+
+  React.useEffect(() => {
+    if (
+      origin.lat !== 0 ||
+      origin.lng !== 0 ||
+      destination.lat !== 0 ||
+      destination.lng !== 0
+    ) {
+      if (!window.google) {
+        loadGoogleMapsScript();
+      } else {
+        initMap();
+      }
+    }
+  }, [origin, destination]);
+
+  React.useEffect(() => {
+    setSelectedDropdownValue(addresses[0]?.place_id);
+  }, [data]);
+
+  React.useEffect(() => {
+    setSelectedAttribute(product_attribute[0].id);
+  }, [product]);
+
   return (
     <DryIcePelletsMainWrapper>
       <Box className="wrapperMainPellet">
@@ -76,7 +250,7 @@ export default function DryIcePelletsMain() {
                 <Box className="imageWrapMain">
                   <figure>
                     <Image
-                      src={assest.pelletIceImage1}
+                      src={product.product_image_url}
                       alt="image-dryice"
                       width={800}
                       height={800}
@@ -87,24 +261,8 @@ export default function DryIcePelletsMain() {
 
               <Grid item lg={6} md={12} xs={12}>
                 <Box className="productMainInfo">
-                  <Typography variant="h2">Dry Ice Pellets</Typography>
-                  <List disablePadding>
-                    <ListItem disablePadding>
-                      $1.50 / pound (50 lb. minimum order)
-                    </ListItem>
-                    <ListItem disablePadding>
-                      $1.15 / pound (250 lb. minimum order)
-                    </ListItem>
-                    <ListItem disablePadding>
-                      $0.75 / pound (1000 lb. minimum order)
-                    </ListItem>
-                    <ListItem disablePadding>
-                      $1.30 / pound (100 lb. minimum order)
-                    </ListItem>
-                    <ListItem disablePadding>
-                      $1.00 / pound (500 lb. minimum order)
-                    </ListItem>
-                  </List>
+                  <Typography variant="h2">{product.name}</Typography>
+
                   <Box className="sizeCart">
                     <Typography variant="body1" className="title">
                       Size
@@ -112,55 +270,55 @@ export default function DryIcePelletsMain() {
                     <Box className="radionList">
                       <RadioGroup
                         aria-labelledby="demo-radio-buttons-group-label"
-                        defaultValue="6"
+                        defaultValue={product_attribute[0]?.id}
                         name="radio-buttons-group"
                       >
-                        <FormControlLabel
-                          value="6"
-                          control={<Radio />}
-                          label={
-                            <Typography>
-                              <Typography variant="caption">6mm</Typography>{" "}
-                              Designed for Dry Ice Blasting. High Density
-                              grain-like features.
-                            </Typography>
-                          }
-                        />
-                        <FormControlLabel
-                          value="9"
-                          control={<Radio />}
-                          label={
-                            <Typography>
-                              <Typography variant="caption">9mm</Typography>{" "}
-                              Multi-purpose - Dry Ice Blasting, Cold Storage,
-                              Food Processing, etc.
-                            </Typography>
-                          }
-                        />
-                        <FormControlLabel
-                          value="10"
-                          control={<Radio />}
-                          label={
-                            <Typography>
-                              <Typography variant="caption">10mm</Typography>{" "}
-                              Multi-purpose - Dry Ice Blasting, Cold Storage,
-                              Food Processing, etc.
-                            </Typography>
-                          }
-                        />
-                        <FormControlLabel
-                          value="16"
-                          control={<Radio />}
-                          label={
-                            <Typography>
-                              <Typography variant="caption">16mm</Typography>{" "}
-                              Multi-purpose - Dry Ice Blasting, Cold Storage,
-                              Food Processing, etc.
-                            </Typography>
-                          }
-                        />
+                        {product_attribute.map((item) => (
+                          <FormControlLabel
+                            value={item.id}
+                            control={<Radio />}
+                            label={
+                              <Box
+                                onClick={() => setSelectedAttribute(item.id)}
+                              >
+                                <Typography>
+                                  <Typography variant="caption">
+                                    {item.size}
+                                  </Typography>
+                                  <div
+                                    style={{
+                                      maxHeight: 92,
+                                      overflow: "hidden"
+                                    }}
+                                  >
+                                    <Typography>{item.details}</Typography>
+                                  </div>
+                                </Typography>
+                              </Box>
+                            }
+                          />
+                        ))}
                       </RadioGroup>
                     </Box>
+                  </Box>
+                  <Box className="sizeCart">
+                    <Typography variant="body1" className="title">
+                      Address
+                    </Typography>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={selectedDropdownValue}
+                      onChange={handleDropdownChange}
+                      sx={{ color: "#002060", width: "100%" }}
+                      defaultValue="1"
+                    >
+                      {addresses.map((item) => (
+                        <MenuItem value={item.place_id}>
+                          {item.formatted_address}
+                        </MenuItem>
+                      ))}
+                    </Select>
                   </Box>
                   <Box className="quantityWrap">
                     <Typography variant="body1" className="title">
@@ -175,7 +333,7 @@ export default function DryIcePelletsMain() {
                       >
                         -
                       </Button>
-                      <InputFieldCommon value={addValue} />
+                      <InputFieldCommon value={quantity} />
                       <Button
                         type="button"
                         disableRipple
@@ -186,14 +344,19 @@ export default function DryIcePelletsMain() {
                     </Box>
                     <Box className="wrapper_btn">
                       <CustomButtonPrimary
+                        onClick={() => onSubmit()}
                         variant="contained"
                         color="secondary"
+                        disabled={
+                          getOrderDistanceMutation.isPending ||
+                          orderPurchaseMutate.isPending
+                        }
                       >
-                        + Add to Cart
+                        Get Distance & Price
                       </CustomButtonPrimary>
                     </Box>
                   </Box>
-                  <Box className="shipmentDetails">
+                  {/* <Box className="shipmentDetails">
                     <Typography variant="body1">
                       Ship to: 10001 <Button type="button">(Change)</Button>
                     </Typography>
@@ -202,11 +365,50 @@ export default function DryIcePelletsMain() {
                       * Free Shipping Included for orders over 50 pounds
                       (conditions apply)
                     </Typography>
-                  </Box>
+                  </Box> */}
                 </Box>
               </Grid>
             </Grid>
           </Box>
+
+          {(origin.lat !== 0 ||
+            origin.lng !== 0 ||
+            destination.lat !== 0 ||
+            destination.lng !== 0) && (
+            <Box sx={{ display: "flex", gap: 10 }}>
+              <Box sx={{ flex: 2 }}>
+                <div
+                  id="map"
+                  style={{ height: "500px", width: "100%", marginBottom: 32 }}
+                />
+              </Box>
+              <Box sx={{ flex: 1 }}>
+                <ItemGroupTitle>Distance</ItemGroupTitle>
+                <ItemGroupDesc>{distance}</ItemGroupDesc>
+                <ItemGroupTitle>Price</ItemGroupTitle>
+                <ItemGroupDesc>
+                  $
+                  {(product_attribute.find(({ id }) => id === selectedAttribute)
+                    ?.price ?? 0) * quantity}{" "}
+                  {fee > 0 && `+ $${fee} (fee)`}
+                </ItemGroupDesc>
+
+                <Box className="wrapper_btn">
+                  <CustomButtonPrimary
+                    onClick={() => handlePurchase()}
+                    variant="contained"
+                    color="secondary"
+                    disabled={
+                      getOrderDistanceMutation.isPending ||
+                      orderPurchaseMutate.isPending
+                    }
+                  >
+                    Create an order
+                  </CustomButtonPrimary>
+                </Box>
+              </Box>
+            </Box>
+          )}
           <Box className="wrapper_mainInfoMddl">
             <Box className="tabInfoMain">
               <Box className="tabTop">

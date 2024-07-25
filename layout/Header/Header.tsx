@@ -211,7 +211,7 @@ export default function Header({
                   <Typography variant="caption">866-709-9045</Typography>
                 </CustomButtonPrimary>
 
-                <Link href="/dashboard">
+                <Link href="/contact/">
                   <CustomButtonPrimary
                     type="button"
                     variant="contained"

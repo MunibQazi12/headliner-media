@@ -17,7 +17,7 @@ module.exports = withPWA({
     includePaths: [path.join(__dirname, "styles")]
   },
   images: {
-    domains: ["career-utility.dedicateddevelopers.us"]
+    domains: ["localhost"]
   },
   swcMinify: true,
   compress: true,

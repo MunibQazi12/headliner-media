@@ -19,6 +19,20 @@ type CommonButtonType = {
   loading?: boolean;
 };
 
+type SignUpFormValues = {
+  full_name: string;
+  email: string;
+  password: string;
+  password_confirmation: string;
+  phone: string;
+  company: string;
+};
+
+type SignInFormValues = {
+  email: string;
+  password: string;
+};
+
 type userData = {
   _id?: string;
   role: {
@@ -64,8 +78,62 @@ type seoData = {
   longitude: number;
 };
 
+type ProductData = {
+  id: number;
+  name: string;
+  available_stock: number;
+  canonical_url: string;
+  created_at: Date;
+  description: string;
+  featured_image: string;
+  featured_image_url: string;
+  h1: string;
+  image: string;
+  meta_description: string;
+  meta_title: string;
+  open_graph_description: string;
+  open_graph_image: string;
+  open_graph_image_url: string;
+  open_graph_title: string;
+  open_graph_url: string;
+  product_image_url: string;
+  schema: string;
+  slug: string;
+  status: number;
+  updated_at: Date;
+  x_card_description: string;
+  x_card_title: string;
+};
+
+type ProductAttributeData = {
+  id: number;
+  size: string;
+  price: number;
+  details: string;
+};
+
+type DistanceInputType = {
+  location: string;
+};
+
 type LoadingType = {
   isLoading: boolean;
 };
 
-export type { CommonButtonType, LoadingType, seoData, userData };
+type AddressInputType = {
+  place_id: string;
+  formatted_address: string;
+};
+
+export type {
+  AddressInputType,
+  CommonButtonType,
+  DistanceInputType,
+  LoadingType,
+  ProductAttributeData,
+  ProductData,
+  SignInFormValues,
+  SignUpFormValues,
+  seoData,
+  userData
+};

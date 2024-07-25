@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
-import { listCardData } from "@/json/mock/cartAboutList.mock";
+import { useProducts } from "@/hooks/react-query/useProduct";
+import { useAppSelector } from "@/hooks/redux/useAppSelector";
 import { DashBoardMainWrapper } from "@/styles/StyledComponents/DashBoardMainWrapper";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import CallUserIcon from "@/ui/Icons/CallUserIcon";
@@ -10,6 +11,9 @@ import CommonCart from "../CommonCart/CommonCart";
 import CommonDashBoardTitle from "../CommonDashBoardTitle/CommonDashBoardTitle";
 
 export default function DashBoardMain() {
+  useProducts();
+  const products = useAppSelector((state) => state.productSlice.products) || [];
+
   return (
     <DashBoardMainWrapper>
       <Box className="wrapper_mainInner">
@@ -19,12 +23,12 @@ export default function DashBoardMain() {
         </Box>
         <Box className="allCardBoxWrap">
           <Grid container spacing={1.5}>
-            {listCardData.map((item, index) => (
+            {products.map((item, index) => (
               <Grid item lg={3} md={6} xs={12} key={index}>
                 <CommonCart
-                  linkPath={item.linkPath}
-                  imgPath={item.imgPath}
-                  textMain={item.textMain}
+                  linkPath={`products/${item.slug}`}
+                  imgPath={item.product_image_url}
+                  textMain={item.name}
                 />
               </Grid>
             ))}
