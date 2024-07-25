@@ -46,7 +46,7 @@ const Wrapper = styled(Box)`
   border-radius: 6px;
 `;
 
-const CustomInput = styled(InputFieldCommon)`
+const CustomInput = styled(InputFieldCommon)<any>`
   border-radius: 12px;
 `;
 
@@ -114,7 +114,7 @@ const CheckoutForm = ({
     setIsEdit(!isEdit);
   };
 
-  const handleBillingDetailsChange = (e) => {
+  const handleBillingDetailsChange = (e: any) => {
     const { name, value } = e.target;
 
     setBillingDetails((prev) => ({
@@ -125,7 +125,7 @@ const CheckoutForm = ({
     }));
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
 
     if (!stripe || !elements) {
@@ -133,22 +133,23 @@ const CheckoutForm = ({
     }
 
     const cardElement = elements.getElement(CardElement);
-
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: "card",
-      card: cardElement,
-      billing_details: billingDetails
-    });
-
-    if (!error) {
-      paymentMethodMutation.mutate(paymentMethod.id, {
-        onSuccess: () => {
-          handleEdit();
-          refetchData();
-        }
+    if (cardElement) {
+      const { error, paymentMethod } = await stripe.createPaymentMethod({
+        type: "card",
+        card: cardElement,
+        billing_details: billingDetails
       });
-    } else {
-      alert(error.message);
+
+      if (!error) {
+        paymentMethodMutation.mutate(paymentMethod.id, {
+          onSuccess: () => {
+            handleEdit();
+            refetchData();
+          }
+        });
+      } else {
+        alert(error.message);
+      }
     }
   };
 
@@ -310,7 +311,7 @@ const CheckoutForm = ({
 };
 
 const StripePage = () => {
-  const [paymentMethodDetails, setPaymentMethodDetails] = useState(null);
+  const [paymentMethodDetails, setPaymentMethodDetails] = useState<any>(null);
   const { data: paymentMethodData, isFetching, refetch } = usePaymentMethod();
 
   useEffect(() => {

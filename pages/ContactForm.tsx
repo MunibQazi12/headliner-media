@@ -1,3 +1,6 @@
+/* eslint-disable @next/next/no-css-tags */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable jsx-a11y/no-redundant-roles */
 import Head from "next/head";
 
 const ContactForm = () => {

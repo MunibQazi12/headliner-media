@@ -1,4 +1,4 @@
-import { ProductData, userData } from "@/types/common.type";
+import { ProductData, seoData, userData } from "@/types/common.type";
 
 export interface userSliceData {
   isLoggedIn: boolean;
@@ -7,7 +7,7 @@ export interface userSliceData {
 
 export interface seoSliceData {
   isLoading: boolean;
-  data: ProductData | null;
+  data: seoData | null;
 }
 
 export interface productSliceData {

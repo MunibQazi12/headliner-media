@@ -20,7 +20,7 @@ const validationSchema = Yup.object({
     .test(
       "two-sections",
       "Full name must consist of at least two sections",
-      (value) => {
+      (value: any) => {
         return value && value.trim().split(" ").length >= 2;
       }
     ),
@@ -66,10 +66,7 @@ export default function SignUpMain() {
   const isloading = signUpMutation.isPending;
 
   const handleSubmit = (values: SignUpFormValues) => {
-    signUpMutation.mutate(values, {
-      onSuccess: (data) => {},
-      onError: (error) => {}
-    });
+    signUpMutation.mutate(values);
   };
 
   return (

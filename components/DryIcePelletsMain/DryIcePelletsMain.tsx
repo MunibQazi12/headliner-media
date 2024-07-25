@@ -4,7 +4,6 @@ import { useOrderDistanceMutation } from "@/hooks/react-query/useProduct";
 import { faqMainListTw } from "@/json/mock/accordianFaq.mock";
 import { DryIcePelletsMainWrapper } from "@/styles/StyledComponents/DryIcePelletsMainWrapper";
 import { primaryColors } from "@/themes/_muiPalette";
-import { ProductAttributeData, ProductData } from "@/types/common.type";
 import InputFieldCommon from "@/ui/CommonInput/CommonInput";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import styled from "@emotion/styled";
@@ -31,11 +30,6 @@ interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
   value: number;
-}
-
-interface DryIcePelletsMain {
-  product: ProductData;
-  product_attribute: ProductAttributeData[];
 }
 
 const ItemGroupTitle = styled(Box)`
@@ -88,10 +82,7 @@ function a11yProps(index: number) {
   };
 }
 
-export default function DryIcePelletsMain({
-  product,
-  product_attribute
-}: DryIcePelletsMain) {
+export default function DryIcePelletsMain({ product, product_attribute }: any) {
   const router = useRouter();
   const getOrderDistanceMutation = useOrderDistanceMutation();
   const orderPurchaseMutate = usePurchaseCreateMutation();
@@ -105,7 +96,7 @@ export default function DryIcePelletsMain({
   const [origin, setOrigin] = useState<any>({ lat: 0, lng: 0 });
   const [destination, setDestination] = useState<any>({ lat: 0, lng: 0 });
 
-  const navigateTo = (path) => {
+  const navigateTo = (path: any) => {
     router.push(path);
   };
 
@@ -116,7 +107,7 @@ export default function DryIcePelletsMain({
     setQuantity(quantity - 1);
   };
 
-  const handleDropdownChange = (event) => {
+  const handleDropdownChange = (event: any) => {
     setSelectedDropdownValue(event.target.value);
   };
 
@@ -137,7 +128,7 @@ export default function DryIcePelletsMain({
           navigateTo("/dashboard/order/");
           alert("payment purchased successfully!");
         },
-        onError: (error) => {
+        onError: () => {
           // Error handling if needed
         }
       }
@@ -155,7 +146,7 @@ export default function DryIcePelletsMain({
           setOrigin(data?.data.origination);
           setDestination(data?.data.destination);
         },
-        onError: (error) => {
+        onError: () => {
           // Error handling if needed
         }
       }
@@ -165,7 +156,10 @@ export default function DryIcePelletsMain({
   const { data } = useAddresses();
   const addresses = data?.data.data || [];
 
-  const calculateAndDisplayRoute = (directionsService, directionsRenderer) => {
+  const calculateAndDisplayRoute = (
+    directionsService: any,
+    directionsRenderer: any
+  ) => {
     directionsService.route(
       {
         origin: new window.google.maps.LatLng(origin.lat, origin.lng),
@@ -175,12 +169,11 @@ export default function DryIcePelletsMain({
         ),
         travelMode: window.google.maps.TravelMode.DRIVING
       },
-      (response, status) => {
+      (response: any, status: any) => {
         if (status === "OK") {
           directionsRenderer.setDirections(response);
           const route = response.routes[0];
           setDistance(route.legs[0].distance.text);
-          console.log(route.legs[0].distance);
           setFee(
             calculateFee(route.legs[0].distance.value * 0.000621371, quantity)
           );
@@ -192,16 +185,20 @@ export default function DryIcePelletsMain({
   };
 
   const initMap = () => {
-    const map = new window.google.maps.Map(document.getElementById("map"), {
-      zoom: 7,
-      center: origin
-    });
+    const mapElement = document.getElementById("map");
 
-    const directionsService = new window.google.maps.DirectionsService();
-    const directionsRenderer = new window.google.maps.DirectionsRenderer();
-    directionsRenderer.setMap(map);
+    if (mapElement) {
+      const map = new window.google.maps.Map(mapElement, {
+        zoom: 7,
+        center: origin
+      });
 
-    calculateAndDisplayRoute(directionsService, directionsRenderer);
+      const directionsService = new window.google.maps.DirectionsService();
+      const directionsRenderer = new window.google.maps.DirectionsRenderer();
+      directionsRenderer.setMap(map);
+
+      calculateAndDisplayRoute(directionsService, directionsRenderer);
+    }
   };
 
   const loadGoogleMapsScript = () => {
@@ -273,7 +270,7 @@ export default function DryIcePelletsMain({
                         defaultValue={product_attribute[0]?.id}
                         name="radio-buttons-group"
                       >
-                        {product_attribute.map((item) => (
+                        {product_attribute.map((item: any) => (
                           <FormControlLabel
                             value={item.id}
                             control={<Radio />}
@@ -388,8 +385,9 @@ export default function DryIcePelletsMain({
                 <ItemGroupTitle>Price</ItemGroupTitle>
                 <ItemGroupDesc>
                   $
-                  {(product_attribute.find(({ id }) => id === selectedAttribute)
-                    ?.price ?? 0) * quantity}{" "}
+                  {(product_attribute.find(
+                    ({ id }: any) => id === selectedAttribute
+                  )?.price ?? 0) * quantity}{" "}
                   {fee > 0 && `+ $${fee} (fee)`}
                 </ItemGroupDesc>
 
