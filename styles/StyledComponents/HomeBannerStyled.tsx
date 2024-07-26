@@ -3,22 +3,22 @@ import styled from "@emotion/styled";
 import Stack from "@mui/material/Stack";
 
 export const HomeBannerStyled = styled(Stack)`
-  padding-top: 139px;
+  padding-top: 60px;
   text-align: center;
   @media (max-width: 1499px) {
-    padding-top: 80px;
-  }
-  @media (max-width: 1399px) {
-    padding-top: 80px;
-  }
-  @media (max-width: 1199px) {
     padding-top: 60px;
   }
+  @media (max-width: 1399px) {
+    padding-top: 48px;
+  }
+  @media (max-width: 1199px) {
+    padding-top: 36px;
+  }
   @media (max-width: 899px) {
-    padding-top: 40px;
+    padding-top: 24px;
   }
   @media (max-width: 599px) {
-    padding-top: 30px;
+    padding-top: 12px;
   }
   .bannerHeading {
     h1 {

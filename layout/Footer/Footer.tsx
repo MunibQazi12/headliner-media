@@ -43,12 +43,8 @@ const navItems = [
         route: "#"
       },
       {
-        name: "Support",
-        route: "#"
-      },
-      {
         name: "Contact Us",
-        route: "/dashboard/support"
+        route: "/contact"
       }
     ]
   },

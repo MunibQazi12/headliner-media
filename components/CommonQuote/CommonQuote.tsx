@@ -77,7 +77,7 @@ const CommonQuoteStyled = styled(Stack)`
 const CommonQuote = () => {
   return (
     <CommonQuoteStyled>
-      <Stack direction="column" className="quoteWrap">
+      <Stack direction="column" className="quoteWrap" textAlign="start">
         <Typography variant="h5">
           Where do you need dry ice delivered to?
         </Typography>

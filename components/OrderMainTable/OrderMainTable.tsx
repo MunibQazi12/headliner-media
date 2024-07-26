@@ -15,7 +15,7 @@ import { LoadingPage } from "../LoadingPage/LoadingPage";
 export default function OrderMainTable() {
   const { data, isFetching, refetch } = useOrdersQuery();
 
-  const orders = data?.data;
+  const orders = data?.data || [];
 
   useEffect(() => {
     refetch();

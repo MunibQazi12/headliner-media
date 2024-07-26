@@ -40,7 +40,7 @@ const CommonHeading = ({
         </Box>
       )}
       {smallHeading && (
-        <Box className="smallHeading">
+        <Box className="smallHeading" padding="16px 0px">
           <Typography variant="h3">{smallHeading}</Typography>
         </Box>
       )}

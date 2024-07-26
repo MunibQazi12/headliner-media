@@ -5,7 +5,7 @@ export const dashboardSidebarMenu = [
   },
   {
     menuText: "Profile",
-    route: "#"
+    route: "/dashboard/profile/"
   },
   {
     menuText: "Orders",
@@ -21,6 +21,6 @@ export const dashboardSidebarMenu = [
   },
   {
     menuText: "Change password",
-    route: "#"
+    route: "/dashboard/change-password/"
   }
 ];

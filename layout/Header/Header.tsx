@@ -44,15 +44,15 @@ export default function Header({
   const navItems = [
     {
       name: "Dry Ice",
-      route: "dry-ice"
+      route: "/dry-ice"
     },
     {
       name: "Why Us?",
-      route: "why-us"
+      route: "/why-us"
     },
     {
       name: "About",
-      route: "about"
+      route: "/about"
     }
   ];
 
@@ -224,14 +224,18 @@ export default function Header({
 
               <Box className="loginBtn">
                 <Button>
-                  <LoginIcon />
+                  <Link href="/dashboard/profile">
+                    <LoginIcon />
+                  </Link>
                 </Button>
               </Box>
 
               <Box className="cart_icon">
                 <Button>
                   <Badge color="primary" variant="dot">
-                    <CartIcon />
+                    <Link href="/dashboard/order">
+                      <CartIcon />
+                    </Link>
                   </Badge>
                 </Button>
               </Box>
