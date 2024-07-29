@@ -9,7 +9,7 @@ const HomeBanner = () => {
     <HomeBannerStyled>
       <Container fixed className="cus_container">
         <Stack direction="column" className="bannerHeading" textAlign="start">
-          <Typography variant="h1">
+          <Typography variant="h2">
             We Support Busy Businesses with Premium Dry Ice Products
           </Typography>
           <Typography variant="body1">

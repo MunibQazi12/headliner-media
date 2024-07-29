@@ -115,8 +115,11 @@ export default function Header({
             type="button"
             variant="contained"
             color="secondary"
+            href='/contact'
           >
-            <Typography variant="caption">Contact Us</Typography>
+            <Typography variant="caption">
+              Contact Us
+            </Typography>
           </CustomButtonPrimary>
         </Stack>
       </Box>
