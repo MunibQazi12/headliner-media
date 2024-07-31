@@ -33,7 +33,6 @@ export const HeadingStyled = styled(Box)`
   }
   .mediumHeading {
     h2 {
-      font-size: 55px;
       @media (max-width: 1499px) {
         font-size: 42px;
       }

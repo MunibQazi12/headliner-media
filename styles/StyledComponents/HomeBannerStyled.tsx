@@ -32,7 +32,7 @@ export const HomeBannerStyled = styled(Stack)`
       margin-top: 20px;
       margin-bottom: 100px;
       @media (max-width: 1399px) {
-        font-size: 22px;
+        font-size: 20px;
       }
       @media (max-width: 1199px) {
         font-size: 20px;
