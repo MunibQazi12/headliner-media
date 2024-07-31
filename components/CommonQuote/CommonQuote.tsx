@@ -101,6 +101,12 @@ const CommonQuote = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (address.place_id || address.formatted_address) {
+      // Handle the address update (e.g., send it to a server, log it, etc.)
+    }
+  }, [address]);
+
 
   return (
     <CommonQuoteStyled>
