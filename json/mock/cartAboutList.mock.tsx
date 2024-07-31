@@ -3,22 +3,22 @@ import assest from "../assest";
 export const listCardData = [
   {
     imgPath: assest.listImgHm1,
-    linkPath: "#",
+    linkPath: "products/aireline-cut-dry-ice/",
     textMain: "Airline Cut Dry Ice"
   },
   {
     imgPath: assest.listImgHm2,
-    linkPath: "#",
+    linkPath: "products/dry-ice-pellets/",
     textMain: "Dry Ice Pellets"
   },
   {
     imgPath: assest.listImgHm3,
-    linkPath: "#",
+    linkPath: "products/high-density-dry-ice-pellets",
     textMain: "High-Density Dry Ice Pellets"
   },
   {
     imgPath: assest.listImgHm4,
-    linkPath: "#",
+    linkPath: "products/5-lb-dry-ice-blocks/",
     textMain: "5 lb. Dry Ice Blocks"
   }
 ];

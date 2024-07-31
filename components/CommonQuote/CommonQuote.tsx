@@ -3,6 +3,11 @@ import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import styled from "@emotion/styled";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { useEffect, useRef, useState } from "react";
+
+type AutocompleteType = {
+  setAddress: (address: { place_id: string; formatted_address: string }) => void;
+};
 
 const CommonQuoteStyled = styled(Stack)`
   .quoteWrap {
@@ -28,7 +33,7 @@ const CommonQuoteStyled = styled(Stack)`
       border: 1px solid ${primaryColors?.color283653};
       padding: 9px;
       border-radius: 10px;
-
+      margin-bottom: 40px;
       @media (max-width: 599px) {
         border: 0;
         flex-wrap: wrap;
@@ -75,6 +80,36 @@ const CommonQuoteStyled = styled(Stack)`
 `;
 
 const CommonQuote = () => {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [address, setAddress] = useState({ place_id: "", formatted_address: "" });
+
+  useEffect(() => {
+    if (window.google && inputRef.current) {
+      const autocomplete = new google.maps.places.Autocomplete(
+        inputRef.current,
+        {
+          types: ["address"],
+          componentRestrictions: { country: "us" }
+        }
+      );
+
+      autocomplete.addListener("place_changed", () => {
+        const place = autocomplete.getPlace();
+        if (place && place.geometry) {
+          setAddress({
+            place_id: place?.place_id || "",
+            formatted_address: place?.formatted_address || ""
+          });
+        }
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log("Address updated:", address);
+    // You can handle further actions here based on the updated address
+  }, [address]);
+
   return (
     <CommonQuoteStyled>
       <Stack direction="column" className="quoteWrap" textAlign="start">
@@ -87,7 +122,12 @@ const CommonQuote = () => {
           justifyContent="space-between"
           className="submitWrap"
         >
-          <input type="text" placeholder="Enter Address..." />
+          <input 
+            ref={inputRef}
+            type="text" 
+            placeholder="Enter Address..." 
+            onChange={() => setAddress({ place_id: "", formatted_address: "" })}
+          />
           <CustomButtonPrimary variant="contained" color="secondary">
             <Typography variant="caption">Get a Free Quote</Typography>
           </CustomButtonPrimary>

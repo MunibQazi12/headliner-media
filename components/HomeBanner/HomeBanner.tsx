@@ -9,7 +9,7 @@ const HomeBanner = () => {
     <HomeBannerStyled>
       <Container fixed className="cus_container">
         <Stack direction="column" className="bannerHeading" textAlign="start">
-          <Typography variant="h2">
+          <Typography variant="h1">
             We Support Busy Businesses with Premium Dry Ice Products
           </Typography>
           <Typography variant="body1">
@@ -17,7 +17,6 @@ const HomeBanner = () => {
             24/7 customer service - always.
           </Typography>
         </Stack>
-
         <CommonQuote />
       </Container>
     </HomeBannerStyled>

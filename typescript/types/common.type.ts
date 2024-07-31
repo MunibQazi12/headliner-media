@@ -105,6 +105,31 @@ type ProductData = {
   x_card_title: string;
 };
 
+type IndustryData = {
+  id: number;
+  title: string;
+  thumbnail: string;
+  full_photo_url: string;
+  short_description: string;
+  status: string;
+  slug: string;
+  meta_title: string;
+  meta_description: string;
+  open_graph_title: string;
+  open_graph_description: string;
+  open_graph_url: string;
+  open_graph_image: string;
+  open_graph_image_url: string;
+  schema: string;
+  x_card_title: string;
+  x_card_description: string;
+  canonical_url: string;
+  featured_image: string;
+  featured_image_url: string;
+  created_at: Date;
+  updated_at: Date;
+};
+
 type ProductAttributeData = {
   id: number;
   size: string;
@@ -128,8 +153,7 @@ type AddressInputType = {
 export type {
   AddressInputType,
   CommonButtonType,
-  DistanceInputType,
-  LoadingType,
+  DistanceInputType, IndustryData, LoadingType,
   ProductAttributeData,
   ProductData,
   SignInFormValues,
@@ -137,3 +161,4 @@ export type {
   seoData,
   userData
 };
+
