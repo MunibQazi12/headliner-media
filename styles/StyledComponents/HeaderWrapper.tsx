@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 
 export const HeaderWrap = styled(Box)`
-  background: ${primaryColors.white};
+ background: ${primaryColors.white};
   .MuiToolbar-root {
     min-height: auto;
     padding: 0;
