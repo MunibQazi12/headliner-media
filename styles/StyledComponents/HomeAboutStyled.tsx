@@ -18,13 +18,13 @@ export const HomeAboutStyled = styled(Box)`
   }
   .cmnTextWrap {
     position: relative;
-    font-size: 20px;
+    font-size: 30px;
     color: ${primaryColors.secondary};
-    margin-bottom: 30px;
-    margin-top: 10px;
+    margin-bottom: 40px;
+    margin-top: 0px;
 
     @media (max-width: 899px) {
-      font-size: 20px;
+      font-size: 30px;
       margin-bottom: 16px;
     }
 

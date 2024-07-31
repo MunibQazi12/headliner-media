@@ -12,7 +12,7 @@ const HomeBanner = () => {
           <Typography variant="h1">
             We Support Busy Businesses
           </Typography>
-          <Typography variant="h1">
+          <Typography className="second-h1" variant="h1">
             with Premium Dry Ice Products
           </Typography>
           <Typography variant="body1">

@@ -13,7 +13,7 @@ const HomeAbout = () => {
   return (
     <HomeAboutStyled>
       <Container fixed className="cus_container">
-        <CommonHeading mediumHeading="Learn About Emory's Dry Ice Products & Delivery Services" />
+        <CommonHeading smallHeading="Learn About Emory's Dry Ice Products & Delivery Services" />
         <Typography variant="body1" className="cmnTextWrap">
           We are deeply committed to providing exceptional dry ice products,
           comprehensive coverage, and customer service
