@@ -5,10 +5,6 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useEffect, useRef, useState } from "react";
 
-type AutocompleteType = {
-  setAddress: (address: { place_id: string; formatted_address: string }) => void;
-};
-
 const CommonQuoteStyled = styled(Stack)`
   .quoteWrap {
     h5 {
@@ -105,10 +101,6 @@ const CommonQuote = () => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log("Address updated:", address);
-    // You can handle further actions here based on the updated address
-  }, [address]);
 
   return (
     <CommonQuoteStyled>
