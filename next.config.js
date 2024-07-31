@@ -17,7 +17,7 @@ module.exports = withPWA({
     includePaths: [path.join(__dirname, "styles")]
   },
   images: {
-    domains: ["localhost"]
+    domains: ["localhost", "emorydryice.store"]
   },
   swcMinify: true,
   compress: true,
