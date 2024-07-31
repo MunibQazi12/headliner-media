@@ -29,7 +29,7 @@ const CommonQuoteStyled = styled(Stack)`
       border: 1px solid ${primaryColors?.color283653};
       padding: 9px;
       border-radius: 10px;
-      margin-bottom: 40px;
+      margin-bottom: 60px;
       @media (max-width: 599px) {
         border: 0;
         flex-wrap: wrap;
