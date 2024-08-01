@@ -49,7 +49,7 @@ export default function Industry() {
                                 >
                                     {industry.short_description}
                                 </Typography>
-                                <CommonQuote></CommonQuote>
+                                <CommonQuote/>
                             </Grid>
                             <Grid item lg={6} md={12} xs={12}>
                             <Box className="productMainInfo" textAlign="right">
