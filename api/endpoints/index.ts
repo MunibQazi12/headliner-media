@@ -26,6 +26,10 @@ export const endpoints = {
     fetchOne: (slug: string) => `products/${slug}`,
     getDistance: "products/distance"
   },
+  industries: {
+    fetchAll: "industries",
+    fetchOne: (slug: string) => `industries/${slug}`
+  },
   order: {
     purchase: "order/purchase",
     fetchAll: "order"

@@ -26,25 +26,25 @@ export const listCardData = [
 export const listCardDataIndustry = [
   {
     imgPath: assest.industryImg1,
-    linkPath: "#",
+    linkPath: "industry/agriculture",
     textMain: "Agriculture",
     colorCode: "#00AF50"
   },
   {
     imgPath: assest.industryImg2,
-    linkPath: "#",
+    linkPath: "industry/airlines",
     textMain: "Airlines",
     colorCode: "#FE0000"
   },
   {
     imgPath: assest.industryImg3,
-    linkPath: "#",
+    linkPath: "industry/education",
     textMain: "Education",
     colorCode: "#01B0F1"
   },
   {
     imgPath: assest.industryImg4,
-    linkPath: "#",
+    linkPath: "industry/food-and-beverage",
     textMain: "Food & Beverage",
     colorCode: "#FFC000"
   },
@@ -92,7 +92,7 @@ export const listCardDataIndustry = [
   },
   {
     imgPath: assest.industryImg12,
-    linkPath: "#",
+    linkPath: "industry/retail",
     textMain: "Retail",
     colorCode: "#70AD46"
   }

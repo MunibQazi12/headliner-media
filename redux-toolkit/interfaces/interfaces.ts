@@ -1,4 +1,4 @@
-import { ProductData, seoData, userData } from "@/types/common.type";
+import { IndustryData, ProductData, seoData, userData } from "@/types/common.type";
 
 export interface userSliceData {
   isLoggedIn: boolean;
@@ -14,6 +14,12 @@ export interface productSliceData {
   isLoading: boolean;
   products: ProductData[];
   product: { product: ProductData | null; product_attribute: any };
+}
+
+export interface industrySliceData {
+  isLoading: boolean;
+  industries: IndustryData[];
+  industry: { industry: IndustryData | null; };
 }
 
 export interface registrationData {}
