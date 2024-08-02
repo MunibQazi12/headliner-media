@@ -14,6 +14,8 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import * as Yup from "yup";
+import {signIn} from "next-auth/react";
+import {useState} from "react";
 
 const validationSchema = Yup.object({
   email: Yup.string()
@@ -42,23 +44,18 @@ export default function LogInMain() {
   const router = useRouter();
   const signInMutation = useSignInMutation();
   const isLoading = signInMutation.isPending;
+  const [isFailedLogin , setIsFailedLogin] = useState(false);
 
-  const handleSubmit = (values: SignInFormValues) => {
-    signInMutation.mutate(values, {
-      onSuccess: (data) => {
-        const token = data?.data?.data?.token;
-
-        if (token) {
-          localStorage.setItem("_token", token);
-          router.push({
-            pathname: "/"
-          });
-        }
-      },
-      onError: () => {
-        // Error handling if needed
-      }
+  const handleSubmit = async (values: SignInFormValues) => {
+    const result : any = await signIn("credentials", {
+      redirect: false,
+      ...values,
     });
+    if(result.error){
+        setIsFailedLogin(true);
+    } else {
+      router.push("/dashboard");
+    }
   };
 
   return (
@@ -69,6 +66,13 @@ export default function LogInMain() {
             <Box className="textWrap">
               <Typography variant="h2">Log In to Your Account</Typography>
             </Box>
+            {isFailedLogin && (
+              <Box className="text-center">
+                <Typography variant="body1" color="error" >
+                  Invalid email or password
+                </Typography>
+              </Box>
+            )}
             <Formik
               initialValues={initialValues}
               validationSchema={validationSchema}

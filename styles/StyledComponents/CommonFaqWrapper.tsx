@@ -29,6 +29,8 @@ export const CommonFaqWrapper = styled(Box)`
       }
       .comnMainAccordian {
         position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
         .MuiPaper-root {
           border: 2px solid ${primaryColors.primary};
           border-radius: 0;

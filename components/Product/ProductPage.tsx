@@ -6,12 +6,10 @@ import { useProduct } from "@/hooks/react-query/useProduct";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { ProductAttributeData, ProductData } from "@/types/common.type";
 import Box from "@mui/material/Box";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-export default function DryIcePellets() {
-  const router = useRouter();
-  const { slug } = router.query;
+export default function ProductPage({ slug }: { slug: string }) {
+
   const { data: rawProduct, isFetching, refetch } = useProduct(slug as string);
 
   const product = rawProduct?.data?.product as ProductData;
@@ -31,7 +29,6 @@ export default function DryIcePellets() {
           <>
             <CommonBreadCrum
               pageName={product.name}
-              ifSumpage="Dry Ice"
               sumPageLink="/dashboard"
             />
             <DryIcePelletsMain

@@ -6,8 +6,8 @@ import SeoSecndSection from "@/components/SeoSecndSection/SeoSecndSection";
 import SeoTopMain from "@/components/SeoTopMain/SeoTopMain";
 import WhyDryIceSection from "@/components/WhyDryIceSection/WhyDryIceSection";
 import useSeo from "@/hooks/react-query/useSeo";
-import { useAppSelector } from "@/hooks/redux/useAppSelector";
-import { faqMainList } from "@/json/mock/accordianFaq.mock";
+import {useAppSelector} from "@/hooks/redux/useAppSelector";
+import {faqMainList} from "@/json/mock/accordianFaq.mock";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import LinkedInIcon from "@/ui/Icons/LinkedInIcon";
 import PrintStIcon from "@/ui/Icons/PrintStIcon";
@@ -18,71 +18,94 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Head from "next/head";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
+import {useSearchParams} from "next/navigation";
+import IndustryPage from "@/components/Industries/IndustryPage";
+import ProductPage from "@/components/Product/ProductPage";
+import   NotFound from "./404";
+
 
 export default function Slug() {
-  const router = useRouter();
-  const { slug } = router.query;
+    const router = useRouter();
+    const {slug} = router.query;
+    const searchParam = useSearchParams();
+    const pageType = searchParam.get("i");
 
-  useSeo((slug || "") as string);
-  const seoData = useAppSelector((state) => state.seoSlice.data);
+    useSeo((slug || "") as string);
+    const seoData = useAppSelector((state) => state.seoSlice.data);
 
-  return (
-    <Wrapper>
-      <Head>
-        <title>{seoData?.meta_title}</title>
-        <meta name="description" content={seoData?.meta_description} />
-      </Head>
-      <Box className="seoMainPage">
-        <SeoTopMain
-          heading={seoData?.h1_tag}
-          meta_description={seoData?.p_tag}
-        />
-        <SeoSecndSection meta_heading={seoData?.h2_tag} />
-        <WhyDryIceSection />
-        <Box className="seoFaq">
-          <ClientTestimonial />
-          <Container fixed className="cus_container">
-            <CommonHeading borderHeading="Emory Dry Ice FAQs" />
-          </Container>
-          <CommonFaq accordiondata={faqMainList} />
-          <Box className="listSocialShare">
-            <Container fixed>
-              <List disablePadding>
-                <ListItem disablePadding>
-                  <Link href="#">Like</Link>
-                </ListItem>
-                <ListItem disablePadding>
-                  <Link href="#">Share</Link>
-                </ListItem>
-                <ListItem disablePadding>
-                  <Link href="#" className="twitterBtn">
-                    <TwiterIcon IconHeight="24" IconWidth="24" />
-                    Share
-                  </Link>
-                </ListItem>
-                <ListItem disablePadding>
-                  <Link href="#" className="linkedInBtn">
-                    <LinkedInIcon IconHeight="24" IconWidth="24" />
-                    Share
-                  </Link>
-                </ListItem>
-                <ListItem disablePadding>
-                  <Link href="#" className="printrStBtn">
-                    <PrintStIcon />
-                    Share
-                  </Link>
-                </ListItem>
-                <ListItem disablePadding>
-                  <Link href="#" className="shareBtn">
-                    + Share
-                  </Link>
-                </ListItem>
-              </List>
-            </Container>
-          </Box>
-        </Box>
-      </Box>
-    </Wrapper>
-  );
+    return (
+        <div>
+            {pageType ? (
+                <>
+                    {pageType == "1" && (
+                    <IndustryPage slug={slug as string}/>
+                    )}
+                    {pageType == "2" && (
+                        <ProductPage slug={slug as string}/>
+                    )}
+                  {(pageType != "1"  &&  pageType != "2" ) &&(
+                    <NotFound />
+                    )}
+                </>
+            ) : (
+                <Wrapper>
+                    <Head>
+                        <title>{seoData?.meta_title}</title>
+                        <meta name="description" content={seoData?.meta_description}/>
+                    </Head>
+                    <Box className="seoMainPage">
+                        <SeoTopMain
+                            heading={seoData?.h1_tag}
+                            meta_description={seoData?.p_tag}
+                        />
+                        <SeoSecndSection meta_heading={seoData?.h2_tag}/>
+                        <WhyDryIceSection/>
+                        <Box className="seoFaq">
+                            <ClientTestimonial/>
+                            <Container fixed className="cus_container">
+                                <CommonHeading borderHeading="Emory Dry Ice FAQs"/>
+                            </Container>
+                            <CommonFaq accordiondata={faqMainList}/>
+                            <Box className="listSocialShare">
+                                <Container fixed>
+                                    <List disablePadding>
+                                        <ListItem disablePadding>
+                                            <Link href="#">Like</Link>
+                                        </ListItem>
+                                        <ListItem disablePadding>
+                                            <Link href="#">Share</Link>
+                                        </ListItem>
+                                        <ListItem disablePadding>
+                                            <Link href="#" className="twitterBtn">
+                                                <TwiterIcon IconHeight="24" IconWidth="24"/>
+                                                Share
+                                            </Link>
+                                        </ListItem>
+                                        <ListItem disablePadding>
+                                            <Link href="#" className="linkedInBtn">
+                                                <LinkedInIcon IconHeight="24" IconWidth="24"/>
+                                                Share
+                                            </Link>
+                                        </ListItem>
+                                        <ListItem disablePadding>
+                                            <Link href="#" className="printrStBtn">
+                                                <PrintStIcon/>
+                                                Share
+                                            </Link>
+                                        </ListItem>
+                                        <ListItem disablePadding>
+                                            <Link href="#" className="shareBtn">
+                                                + Share
+                                            </Link>
+                                        </ListItem>
+                                    </List>
+                                </Container>
+                            </Box>
+                        </Box>
+                    </Box>
+                </Wrapper>
+            )}
+        </div>
+    );
 }

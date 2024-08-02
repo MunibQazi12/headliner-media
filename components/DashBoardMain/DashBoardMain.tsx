@@ -26,7 +26,7 @@ export default function DashBoardMain() {
             {products.map((item, index) => (
               <Grid item lg={3} md={6} xs={12} key={index}>
                 <CommonCart
-                  linkPath={`products/${item.slug}`}
+                  linkPath={`/${item.slug}?i=2`}
                   imgPath={item.product_image_url}
                   textMain={item.name}
                 />

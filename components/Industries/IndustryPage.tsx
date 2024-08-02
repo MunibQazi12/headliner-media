@@ -17,13 +17,12 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
-import IndustryContent from "./content/content";
+import IndustryContent from "./content";
 
-export default function Industry() {
-  const router = useRouter();
-  const { slug } = router.query;
+export default function IndustryPage({slug} : {slug: string} ) {
+
+
   const { data: rawProduct, isFetching, refetch } = useIndustry(slug as string);
 
   const industry = rawProduct?.data?.industry as IndustryData;
@@ -42,7 +41,6 @@ export default function Industry() {
             <>
                 <CommonBreadCrum
                     pageName={industry.title}
-                    ifSumpage="Dry Ice"
                     sumPageLink="/dashboard"
                 />
                 <Container fixed className="cus_container">

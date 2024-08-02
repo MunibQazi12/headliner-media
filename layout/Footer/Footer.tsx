@@ -53,19 +53,19 @@ const navItems = [
     submenu: [
       {
         name: "Dry Ice Pellets",
-        route: "products/dry-ice-pellets/"
+        route: "/dry-ice-pellets?i=2"
       },
       {
         name: "Dry Ice Blocks",
-        route: "products/5-lb-dry-ice-blocks/"
+        route: "/5-lb-dry-ice-blocks?i=2"
       },
       {
         name: "Airline Cut Dry Ice",
-        route: "products/aireline-cut-dry-ice/"
+        route: "/aireline-cut-dry-ice?i=2"
       },
       {
         name: "High-Density Dry Ice Pellets",
-        route: "products/high-density-dry-ice-pellets"
+        route: "/high-density-dry-ice-pellets?i=2"
       },
       {
         name: "Dry Ice Delivery",

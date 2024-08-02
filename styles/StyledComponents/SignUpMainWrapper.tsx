@@ -1,6 +1,7 @@
 import { primaryColors } from "@/themes/_muiPalette";
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
+import {textAlign} from "@mui/system";
 
 export const SignUpMainWrapper = styled(Box)`
   .wrapper_authMain {
@@ -246,5 +247,8 @@ export const SignUpMainWrapper = styled(Box)`
         }
       }
     }
+  }
+  .text-center {
+    text-align: center;
   }
 `;

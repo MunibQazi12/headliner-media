@@ -9,6 +9,7 @@ import CommonCart from "../CommonCart/CommonCart";
 import CommonHeading from "../CommonHeading/CommonHeading";
 
 export default function DryIceTopPart() {
+
   return (
     <DryIceTopPartWraper>
       <Box className="wrapper_mainDryIce">

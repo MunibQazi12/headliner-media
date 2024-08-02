@@ -7,6 +7,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import {signOut} from "next-auth/react";
 
 export default function DashboardSidebarMain() {
   const router = useRouter();
@@ -25,7 +26,7 @@ export default function DashboardSidebarMain() {
             </ListItem>
           ))}
           <ListItem disablePadding>
-            <Link href="#">Logout</Link>
+            <Link href="#" onClick={() => signOut()}>Logout</Link>
           </ListItem>
         </List>
       </Box>
