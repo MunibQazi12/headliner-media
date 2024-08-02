@@ -50,43 +50,43 @@ export const listCardDataIndustry = [
   },
   {
     imgPath: assest.industryImg5,
-    linkPath: "#",
+    linkPath: "industry/food-delivery",
     textMain: "Food Delivery",
     colorCode: "#365722"
   },
   {
     imgPath: assest.industryImg6,
-    linkPath: "#",
+    linkPath: "industry/food-processing",
     textMain: "Food Processing",
     colorCode: "#92D051"
   },
   {
     imgPath: assest.industryImg7,
-    linkPath: "#",
+    linkPath: "industry/healthcare",
     textMain: "Healthcare",
     colorCode: "#012060"
   },
   {
     imgPath: assest.industryImg8,
-    linkPath: "#",
+    linkPath: "industry/industrial-manufacturing",
     textMain: "Industrial Manufacturing",
     colorCode: "#ED7D31"
   },
   {
     imgPath: assest.industryImg9,
-    linkPath: "#",
+    linkPath: "industry/meat-processing",
     textMain: "Meat Processing",
     colorCode: "#C00000"
   },
   {
     imgPath: assest.industryImg10,
-    linkPath: "#",
+    linkPath: "industry/oil-gas",
     textMain: "Oil & Gas",
     colorCode: "#585858"
   },
   {
     imgPath: assest.industryImg11,
-    linkPath: "#",
+    linkPath: "industry/pharmaceuticals",
     textMain: "Pharmaceuticals",
     colorCode: "#0071C1"
   },
