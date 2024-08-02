@@ -106,8 +106,7 @@ export default function Industry() {
                 <Container style={{ 
                             marginTop: '20px',
                             marginBottom: '10px'
-                        }}>
-                </Container>
+                }}/>
                 <WhyDryIceSection/>
                 <ClientTestimonial/>
             </>
