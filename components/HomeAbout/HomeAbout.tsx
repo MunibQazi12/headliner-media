@@ -15,7 +15,7 @@ const HomeAbout = () => {
       <Container fixed className="cus_container">
         <Box className="mediumHeading">
           <Typography style={{ fontSize:'60px' }} variant="h2">
-            Learn About Emory's Dry Ice Products & Delivery Services
+            Learn About Emory&apos;s Dry Ice Products &amp; Delivery Services
           </Typography>
         </Box>
         <Typography variant="body1" className="cmnTextWrap">

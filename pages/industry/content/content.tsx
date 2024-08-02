@@ -1,6 +1,7 @@
 import CommonHeading from "@/components/CommonHeading/CommonHeading";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+
 const IndustryContent = ({ slug }: { slug: string }) => {
     return (
       <>
@@ -614,7 +615,7 @@ const IndustryContent = ({ slug }: { slug: string }) => {
                     }}
                     variant="body1" 
                 >
-                    <strong>Delivery Time: </strong> Food delivery services aim to deliver orders promptly to customers' doorsteps. However, delays in delivery can 
+                    <strong>Delivery Time: </strong> Food delivery services aim to deliver orders promptly to customers doorsteps. However, delays in delivery can 
                     occur due to various factors such as traffic, weather conditions, or order volume. Ensuring food remains at the correct temperature 
                     throughout the delivery process is crucial.
                 </Typography>
@@ -866,7 +867,7 @@ const IndustryContent = ({ slug }: { slug: string }) => {
                     }}
                     variant="body1" 
                 >
-                    <strong>Transportation: </strong> Transporting temperature-sensitive products from manufacturers to healthcare facilities, clinics, and patients' 
+                    <strong>Transportation: </strong> Transporting temperature-sensitive products from manufacturers to healthcare facilities, clinics, and patients 
                     homes requires careful planning and monitoring to prevent exposure to temperature extremes during transit.
                 </Typography>
                 <Typography 
@@ -1326,7 +1327,7 @@ const IndustryContent = ({ slug }: { slug: string }) => {
                 >
                     Overall, dry ice is the best cooling and cleaning solution for oil and gas businesses due to its rapid cooling capabilities, cleaning 
                     efficiency, non-toxic nature, versatility, environmental sustainability, and safety profile. It helps maintain equipment integrity, prevent 
-                    corrosion, and ensure the safety and efficiency of oil and gas production processes. If your oil and gas business needs a high quality and affordable dry ice cooling and/or cleaning solution for your facility's unique needs, please contact Emory today.
+                    corrosion, and ensure the safety and efficiency of oil and gas production processes. If your oil and gas business needs a high quality and affordable dry ice cooling and/or cleaning solution for your facility&apos;s unique needs, please contact Emory today.
                 </Typography>
             </Box>
         )}

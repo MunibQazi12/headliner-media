@@ -1,6 +1,5 @@
-import CommonBreadCrum from "@/components/CommonBreadCrum/CommonBreadCrum";
-
 import ClientTestimonial from "@/components/ClientTestimonial/ClientTestimonial";
+import CommonBreadCrum from "@/components/CommonBreadCrum/CommonBreadCrum";
 import CommonCart from "@/components/CommonCart/CommonCart";
 import CommonFaq from "@/components/CommonFaq/CommonFaq";
 import CommonHeading from "@/components/CommonHeading/CommonHeading";
@@ -21,6 +20,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import IndustryContent from "./content/content";
+
 export default function Industry() {
   const router = useRouter();
   const { slug } = router.query;
@@ -90,8 +90,8 @@ export default function Industry() {
                         }}
                     >
                         <Grid container spacing={2}>
-                            {listCardData.map((item, index) => (
-                                <Grid item lg={3} md={6} xs={12} key={index}>
+                            {listCardData.map((item) => (
+                                <Grid item lg={3} md={6} xs={12} key={item.linkPath}>
                                     <CommonCart
                                         linkPath={item.linkPath}
                                         imgPath={item.imgPath}
