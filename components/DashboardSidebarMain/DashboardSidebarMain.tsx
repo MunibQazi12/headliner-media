@@ -11,6 +11,11 @@ import {signOut} from "next-auth/react";
 
 export default function DashboardSidebarMain() {
   const router = useRouter();
+
+
+
+
+
   return (
     <DashboardSidebarMainWrapper>
       <Box className="sideBarMain_wrap">
@@ -26,7 +31,9 @@ export default function DashboardSidebarMain() {
             </ListItem>
           ))}
           <ListItem disablePadding>
-            <Link href="#" onClick={() => signOut()}>Logout</Link>
+            <Link href="#" onClick={() => {
+                signOut();
+            }}>Logout</Link>
           </ListItem>
         </List>
       </Box>

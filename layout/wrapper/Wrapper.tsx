@@ -12,9 +12,9 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Container from "@mui/material/Container";
 import {useRouter} from "next/router";
 import React, {useState} from "react";
+import {NextAuthProvider} from "@/components/layout";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import {NextAuthProvider} from "@/components/layout";
 
 interface wrapperProps {
     children: React.ReactNode;

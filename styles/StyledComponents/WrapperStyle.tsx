@@ -3,6 +3,12 @@ import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 
 export const WrapperStyle = styled(Box)`
+ 
+  .header-button {
+    padding: 14px 42px;
+    min-width: auto;
+    margin-right: 15px;
+  }
   &.active {
     overflow-y: hidden;
     height: 100vh;
@@ -628,6 +634,7 @@ export const WrapperStyle = styled(Box)`
     @media (max-width: 599px) {
       padding-bottom: 30px;
     }
+   
     ul {
       display: flex;
       align-items: center;

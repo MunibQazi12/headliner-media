@@ -14,8 +14,10 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import * as Yup from "yup";
-import {signIn} from "next-auth/react";
-import {useState} from "react";
+import {signIn, useSession} from "next-auth/react";
+import {useEffect, useState} from "react";
+import {useAppDispatch} from "@/hooks/redux/useAppDispatch";
+import {logout} from "@/reduxtoolkit/slices/userSlice";
 
 const validationSchema = Yup.object({
   email: Yup.string()
@@ -41,11 +43,20 @@ const CustomInput = styled(Field)`
 `;
 
 export default function LogInMain() {
+
   const router = useRouter();
   const signInMutation = useSignInMutation();
   const isLoading = signInMutation.isPending;
   const [isFailedLogin , setIsFailedLogin] = useState(false);
+  const dispatch = useAppDispatch();
+  const {data : session} = useSession();
+  useEffect(() => {
+      if(!session){
 
+          dispatch(logout());
+
+      }
+  }, [session]);
   const handleSubmit = async (values: SignInFormValues) => {
     const result : any = await signIn("credentials", {
       redirect: false,
@@ -54,7 +65,7 @@ export default function LogInMain() {
     if(result.error){
         setIsFailedLogin(true);
     } else {
-      router.push("/dashboard");
+      router.push("/dashboard/profile");
     }
   };
 

@@ -13,11 +13,11 @@ import CommonDashBoardTitle from "../CommonDashBoardTitle/CommonDashBoardTitle";
 export default function DashBoardMain() {
   useProducts();
   const products = useAppSelector((state) => state.productSlice.products) || [];
-
+  const {userData} : any = useAppSelector((state) => state.userSlice);
   return (
     <DashBoardMainWrapper>
       <Box className="wrapper_mainInner">
-        <CommonDashBoardTitle title="Hello, John. How can we help you today?" />
+        <CommonDashBoardTitle title={`Hello, ${userData?.first_name}. How can we help you today?`} />
         <Box className="boxTextWrap">
           <Typography variant="h3">Order Dry Ice</Typography>
         </Box>

@@ -21,3 +21,15 @@ export const CreateAddress = async (
   const { data } = await axiosInstance.post(endpoints.addresses, payload);
   return data;
 };
+
+export const DeleteAddress = async (
+    id: string
+): Promise<AddressData> => {
+  try {
+    const { data } = await axiosInstance.get(`${endpoints.addressDelete}/${id}`);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+

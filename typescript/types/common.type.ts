@@ -28,6 +28,23 @@ type SignUpFormValues = {
   company: string;
 };
 
+type ProfileUpdate = {
+  full_name: string;
+
+  email: string;
+
+  phone: string;
+  company: string;
+};
+
+type ChangePassword = {
+  old_password: string;
+
+  password: string;
+
+  confirm_password: string;
+};
+
 type SignInFormValues = {
   email: string;
   password: string;
@@ -159,6 +176,8 @@ export type {
   SignInFormValues,
   SignUpFormValues,
   seoData,
-  userData
+  userData,
+  ProfileUpdate,
+  ChangePassword
 };
 

@@ -4,13 +4,15 @@ import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
+import {useAppSelector} from "@/hooks/redux/useAppSelector";
 import CommonDashBoardTitle from "../CommonDashBoardTitle/CommonDashBoardTitle";
 
 export default function SupportMain() {
+  const {userData} : any = useAppSelector((state) => state.userSlice);
   return (
     <SupportMainWrapper>
       <Box className="supportMainWrap">
-        <CommonDashBoardTitle title="Hello, John. Contact Support for order updates, questions, and more here." />
+        <CommonDashBoardTitle title={`Hello, ${userData?.first_name}. Contact Support for order updates, questions, and more here.`} />
         <Box className="infoAllForm">
           <Typography variant="h3">
             Call Emory Customer Support 24/7

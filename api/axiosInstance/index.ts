@@ -12,8 +12,13 @@ const axiosInstance = axios.create({
   baseURL: baseUrlApi
 });
 
-axiosInstance.interceptors.request.use((config) => {
-  const token = localStorage.getItem("_token");
+axiosInstance.interceptors.request.use(async (config) => {
+  const session : any = await fetch('/api/auth/session').then((res) => res.json());
+
+  let token = null;
+  if(session){
+    token = session.user.accessToken;
+  }
   if (token && !!config.headers) {
     config.headers["Authorization"] = `Bearer ${token}`;
   }

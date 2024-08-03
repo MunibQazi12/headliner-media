@@ -140,7 +140,7 @@ const IndustryContent = ({ slug }: { slug: string }) => {
                         marginBottom: '20px'
                     }}
                 >
-                    Produce cooling is crucial in the agriculture industry in order to maintain the freshness and quality of fruits and vegetables when 
+                    Produce cooling is crucial in the agriculture industry in order to maintain the freshness and quality of fruits and vegetables when
                     delivering them from farms to stores. Here are some of the common challenges that Emory’s dry ice cooling solutions helps 
                     agriculture with:
                 </Typography>

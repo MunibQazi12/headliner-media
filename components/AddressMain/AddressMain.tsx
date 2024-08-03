@@ -2,7 +2,7 @@
 /* eslint-disable unused-imports/no-unused-vars */
 import AutoComplete from "@/components/Autocomplete/Autocomplete";
 import { useAddresses } from "@/hooks/react-query/useAddress";
-import { useAddressCreateMutation } from "@/hooks/react-query/useAddressMutations";
+import {useAddressCreateMutation} from "@/hooks/react-query/useAddressMutations";
 import { AddressMainWrapper } from "@/styles/StyledComponents/AddressMainWrapper";
 import type { AddressInputType } from "@/types/common.type";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
@@ -14,6 +14,8 @@ import Grid from "@mui/material/Grid";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import * as React from "react";
+import {useAppSelector} from "@/hooks/redux/useAppSelector";
+import {DeleteAddress} from "@/api/functions/address.api";
 import CommonDashBoardTitle from "../CommonDashBoardTitle/CommonDashBoardTitle";
 
 const FlexBox = styled.div`
@@ -34,6 +36,7 @@ export default function AddressMain() {
   });
   const { data, error, isLoading, refetch } = useAddresses();
   const addressCreateMutation = useAddressCreateMutation();
+
   const addresses = data?.data.data;
 
   const open = Boolean(anchorEl);
@@ -42,6 +45,10 @@ export default function AddressMain() {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+  const deleteItem = async (id: string) => {
+    const addressDeleteMutation = await DeleteAddress(id as string);
+    refetch();
   };
   const onSubmitAddress = () => {
     addressCreateMutation.mutate(address, {
@@ -55,12 +62,12 @@ export default function AddressMain() {
       }
     });
   };
-
+  const {userData} : any = useAppSelector((state) => state.userSlice);
   return (
     <AddressMainWrapper>
       <Box className="mainAddress_wrapper">
         <CommonDashBoardTitle
-          title="Hello, John. Update or add shipping address here."
+          title={`Hello, ${userData?.first_name}. Update or add shipping address here.`}
           btnText="+ Add Shipping Address"
         />
         <FlexBox>
@@ -80,6 +87,7 @@ export default function AddressMain() {
           <Grid container spacing={{ lg: 3, xs: 2 }}>
             {addresses?.map((item) => (
               <Grid item xs={12}>
+
                 <Box className="wrapper_mainBoxCart">
                   <div className="title">{item.formatted_address}</div>
                   <Box className="btnWrp">
@@ -129,7 +137,7 @@ export default function AddressMain() {
                       transformOrigin={{ horizontal: "right", vertical: "top" }}
                       anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
                     >
-                      <MenuItem onClick={handleClose}>Delete</MenuItem>
+                      <MenuItem onClick={ () => { deleteItem(item.id);handleClose()}}>Delete</MenuItem>
                     </Menu>
                   </Box>
                 </Box>

@@ -13,8 +13,9 @@ export const endpoints = {
     signup: "user/existence",
     signUpProfile: "register",
     login: "login",
-    profileDetails: "user/profile/get",
-    profileUpdate: "user/profile/update"
+    profileDetails: "my-profile",
+    profileUpdate: "personal-details-update",
+    changePassword: "update-password",
   },
   cms: {
     about: "aboutpolicy/details",
@@ -35,6 +36,7 @@ export const endpoints = {
     fetchAll: "order"
   },
   addresses: "addresses",
+  addressDelete: "delete-address",
   payment: { paymentMethod: "payment/payment-method" }
 };
 
