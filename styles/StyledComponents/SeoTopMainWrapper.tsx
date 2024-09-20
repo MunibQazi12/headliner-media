@@ -64,6 +64,7 @@ export const SeoTopMainWrapper = styled(Box)`
           }
           .formOnly {
             position: relative;
+            max-width : 883px;
             .MuiInputBase-root {
               padding: 14px 230px 14px 16px;
               border-radius: 10px;

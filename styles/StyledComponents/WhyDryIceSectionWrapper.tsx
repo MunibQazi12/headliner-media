@@ -34,7 +34,7 @@ export const WhyDryIceSectionWrapper = styled(Box)`
               height: auto;
             }
           }
-          p {
+          h3 {
             font-weight: 700;
             font-size: 28px;
             text-align: center;

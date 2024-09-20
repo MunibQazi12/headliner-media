@@ -28,7 +28,7 @@ export default function ProductPage({ slug }: { slug: string }) {
         ) : (
           <>
             <CommonBreadCrum
-              pageName={product.name}
+              pageName={product?.name}
               sumPageLink="/dashboard"
             />
             <DryIcePelletsMain

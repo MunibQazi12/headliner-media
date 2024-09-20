@@ -40,21 +40,21 @@ export default function IndustryPage({slug} : {slug: string} ) {
         ) : (
             <>
                 <CommonBreadCrum
-                    pageName={industry.title}
+                    pageName={industry?.title}
                     sumPageLink="/dashboard"
                 />
                 <Container fixed className="cus_container">
                     <Box className="middlePartMain">
                         <Grid container spacing={4} >
                             <Grid item lg={6} md={12} xs={12}>
-                                <Typography variant="h3">{industry.title}</Typography>
+                                <Typography variant="h3">{industry?.title}</Typography>
                                 <Typography variant="body1" 
                                     style={{ 
                                         marginTop: '16px',
                                         marginBottom: '20px'
                                     }}
                                 >
-                                    {industry.short_description}
+                                    {industry?.short_description}
                                 </Typography>
                                 <CommonQuote/>
                             </Grid>
@@ -62,7 +62,7 @@ export default function IndustryPage({slug} : {slug: string} ) {
                             <Box className="productMainInfo" textAlign="right">
                                 <figure>
                                 <Image
-                                    src={industry.featured_image_url}
+                                    src={industry?.featured_image_url}
                                     alt="cart-image"
                                     width={700}
                                     height={500}

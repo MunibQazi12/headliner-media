@@ -173,7 +173,7 @@ const Footer = () => {
               {navItems.map((item, index) => (
                 <Box className="singleMenuLink" key={`footer-${index}`}>
                   <Box className="wrapper_footerMenu">
-                    <Typography variant="body1" className="titletxt">
+                    <Typography variant="h3" className="titletxt">
                       {item.title}
                     </Typography>
                     <List disablePadding>

@@ -20,7 +20,7 @@ export const NeedCustomerWrapper = styled(Box)`
       }
       .wrapper_textInfo {
         position: relative;
-        h3 {
+        h2 {
           font-weight: 700;
           font-size: 57px;
           color: ${primaryColors.white};
@@ -51,7 +51,7 @@ export const NeedCustomerWrapper = styled(Box)`
             margin-bottom: 12px;
           }
         }
-        h4 {
+        p {
           font-weight: 700;
           font-size: 29px;
           color: ${primaryColors.white};

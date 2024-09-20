@@ -9,10 +9,10 @@ const HomeBanner = () => {
     <HomeBannerStyled>
       <Container fixed className="cus_container">
         <Stack direction="column" className="bannerHeading" textAlign="start">
-          <Typography variant="h1">
+          <Typography variant="h1" sx={{ fontSize : '4vw' }} >
             We Support Busy Businesses
           </Typography>
-          <Typography className="second-h1" variant="h1">
+          <Typography className="second-h1" variant="h1"  sx={{ fontSize : '4vw' }}>
             with Premium Dry Ice Products
           </Typography>
           <Typography variant="body1">

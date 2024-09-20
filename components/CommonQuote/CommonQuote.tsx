@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 
 const CommonQuoteStyled = styled(Stack)`
   .quoteWrap {
-    h5 {
+    p {
       font-size: 40px;
       font-weight: 700;
       margin-bottom: 20px;
@@ -41,10 +41,10 @@ const CommonQuoteStyled = styled(Stack)`
         color: ${primaryColors?.black};
         max-width: 649px;
         flex-basis: 649px;
-        font-size: 24px;
+        font-size: 20px;
 
         @media (max-width: 1399px) {
-          font-size: 20px;
+          font-size: 18px;
         }
 
         @media (max-width: 599px) {
@@ -111,7 +111,7 @@ const CommonQuote = () => {
   return (
     <CommonQuoteStyled>
       <Stack direction="column" className="quoteWrap" textAlign="start">
-        <Typography variant="h5">
+        <Typography variant="body1">
           Where do you need dry ice delivered to?
         </Typography>
         <Stack

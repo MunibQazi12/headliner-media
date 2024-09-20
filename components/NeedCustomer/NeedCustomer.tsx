@@ -17,12 +17,12 @@ export default function NeedCustomer() {
                         <Grid container spacing={2} alignItems="center">
                             <Grid item lg={6} md={6} xs={12}>
                                 <Box className="wrapper_textInfo">
-                                    <Typography variant="h3">Need Custom Cut Dry Ice?</Typography>
+                                    <Typography variant="h2">Need Custom Cut Dry Ice?</Typography>
                                     <Typography variant="body1">
                                         Emory can help you. We can manufacture and deliver any type
                                         of custom cut dry ice products based on your requirements.
                                     </Typography>
-                                    <Typography variant="h4">Get a Free Quote Today</Typography>
+                                    <Typography variant="body1">Get a Free Quote Today</Typography>
                                     <Link href="/contact">
                                         <CustomButtonPrimary variant="contained" color="primary">
                                             {`Contact Us >`}

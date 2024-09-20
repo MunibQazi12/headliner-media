@@ -28,7 +28,7 @@ export default function WhyDryIceSection() {
                           height={600}
                         />
                       </figure>
-                      <Typography variant="body1">{item.textTitle}</Typography>
+                      <Typography variant="h3">{item.textTitle}</Typography>
                     </Box>
                   </Grid>
                 ))}
