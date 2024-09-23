@@ -1,14 +1,12 @@
-import { MoreResourcesStyled } from '@/styles/StyledComponents/MoreResourcesStyled'
-import React from 'react'
-import CommonHeading from '../CommonHeading/CommonHeading'
-import { Box, Button, Grid, Typography } from '@mui/material'
-import MoreResourcesCard from './MoreResourcesCard'
 import { articals } from '@/json/mock/cartAboutList.mock'
-import router from 'next/router'
+import { MoreResourcesStyled } from '@/styles/StyledComponents/MoreResourcesStyled'
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import MoreResourcesCard from './MoreResourcesCard'
 
 function MoreResources() {
-    const { slug }: { slug: string } = router.query;
-
     return (
         <MoreResourcesStyled>
             <Box className="container">
@@ -19,8 +17,8 @@ function MoreResources() {
                 </Box>
                 <Box className="cardContainer">
 
-                    {articals.slice(0, 3).map((item, index) => (
-                        <Grid sx={{ width: '30%', borderRadius: '4px' }} item lg={3} key={index}>
+                    {articals.slice(0, 3).map((item) => (
+                        <Grid sx={{ width: '30%', borderRadius: '4px' }} item lg={3} key={item.linkPath}>
                             <MoreResourcesCard
                                 linkPath={item.linkPath}
                                 imgPath={item.imgPath}
@@ -30,7 +28,7 @@ function MoreResources() {
                     ))}
 
                 </Box>
-                <Box  className='btnContainer' >
+                <Box className='btnContainer' >
                     <Button className='btn' variant='contained'>See More Resources</Button>
                 </Box>
             </Box>

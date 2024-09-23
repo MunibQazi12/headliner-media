@@ -2,7 +2,6 @@ import ClientTestimonial from "@/components/ClientTestimonial/ClientTestimonial"
 import HomeAbout from "@/components/HomeAbout/HomeAbout";
 import HomeBanner from "@/components/HomeBanner/HomeBanner";
 import IndustriesServed from "@/components/IndustriesServed/IndustriesServed";
-import MoreResources from "@/components/MoreResources/MoreResources";
 import NeedCustomer from "@/components/NeedCustomer/NeedCustomer";
 import WhyDryIceSection from "@/components/WhyDryIceSection/WhyDryIceSection";
 import Wrapper from "@/layout/wrapper/Wrapper";
@@ -16,7 +15,6 @@ export default function Home() {
       <IndustriesServed />
       <WhyDryIceSection />
       <ClientTestimonial />
-      {/* <MoreResources /> */}
     </Wrapper>
   );
 }
