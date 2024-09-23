@@ -10,6 +10,7 @@ export default function resourcesDetails() {
         ifSumpage="Resources"
       />
       <ResourcesDetailsMain />
+      
     </Wrapper>
   );
 }

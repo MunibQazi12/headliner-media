@@ -264,6 +264,7 @@ export const FooterWrap = styled(Box)`
                 }
                 &:hover {
                   color: ${primaryColors.secondary};
+                  text-decoration: underline;
                 }
               }
             }

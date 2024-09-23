@@ -33,7 +33,8 @@ export const WrapperStyle = styled(Box)`
   }
 
   a:hover {
-    /* color: #00a5d0; */
+     color: #00a5d0; 
+     underline: 2px;
   }
 
   a:focus {

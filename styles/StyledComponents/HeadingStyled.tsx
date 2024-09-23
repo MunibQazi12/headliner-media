@@ -9,7 +9,7 @@ export const HeadingStyled = styled(Box)`
       border-bottom: 5px solid ${primaryColors.primary};
       padding-bottom: 12px;
       line-height: 0.9;
-      font-size: 49px;
+      font-size: 44px;
 
       @media (max-width: 1499px) {
         font-size: 40px;

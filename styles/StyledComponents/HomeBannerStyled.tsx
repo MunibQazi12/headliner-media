@@ -23,10 +23,13 @@ export const HomeBannerStyled = styled(Stack)`
   .bannerHeading {
     h1 {
       text-transform: inherit;
-      @media (max-width: 599px) {
-     font-size: 38px;
-  }
-      font-size: 4.4vw;
+       font-size: 5.5vw;
+      @media (max-width : 1200px) {
+       font-size: 44px;
+      }
+      
+
+     
     }
     p {
       color: ${primaryColors?.secondary};

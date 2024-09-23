@@ -14,7 +14,7 @@ const HomeAbout = () => {
     <HomeAboutStyled>
       <Container fixed className="cus_container">
         <Box className="mediumHeading">
-          <Typography style={{ fontSize:'60px' }} variant="h2">
+          <Typography className="learnText" variant="h2">
             Learn About Emory&apos;s Dry Ice Products &amp; Delivery Services
           </Typography>
         </Box>

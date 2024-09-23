@@ -35,4 +35,14 @@ export const HomeAboutStyled = styled(Box)`
   .allCardBoxWrap {
     padding-top: 30px;
   }
+    .learnText {
+      font-size: 3vw;
+        
+        @media (max-width : 1200px) {
+          font-size : 34px;
+        }
+        @media (max-width : 899px) {
+          font-size : 28px;
+        }
+  }
 `;

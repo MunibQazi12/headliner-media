@@ -214,3 +214,23 @@ export const listCardDataDryIceTw = [
     textMain: "Custom Cut Dry Ice"
   }
 ];
+
+
+export const articals = [
+  {
+    imgPath: assest.listImgHm2,
+    linkPath:  "/transporting-dry-Ice",
+    textMain: "A Safety Guide to Avoid Hazards & Health Risks"
+  },
+  {
+    imgPath: assest.listImgHm1,
+    linkPath: "/carbon-ice",
+    textMain: "The Cool Science of Dry Ice"
+  },
+  {
+    imgPath: assest.listImgHm3,
+    linkPath: "/dry-ice-blasting",
+    textMain: "A Comprehensive Guide to CO2 Cleaning"
+  },
+ 
+];
