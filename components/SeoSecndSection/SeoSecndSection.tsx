@@ -22,11 +22,6 @@ const SeoSecndSection = ({ meta_heading }: SeoSecndSection) => {
           We are deeply committed to providing exceptional dry ice products,
           comprehensive coverage, and customer service.
         </Typography>
-        <Typography variant="body1" className="cmnTextWrap">
-          We are deeply committed to providing exceptional dry ice products,
-          comprehensive coverage, and customer service.
-        </Typography>
-
         <Box className="deliveredProduct">
           <CommonHeading
             borderHeading={
