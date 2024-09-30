@@ -28,7 +28,9 @@ export default function IndustriesServed() {
                   className="textInfo"
                   sx={{ background: `${item.colorCode}` }}
                 >
-                  <Link href={item.linkPath}>{item.textMain}</Link>
+                  <h3>
+                    <Link href={item.linkPath}>{item.textMain}</Link>
+                  </h3>
                 </Box>
               </Box>
             </Grid>

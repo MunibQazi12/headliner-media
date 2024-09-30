@@ -179,7 +179,9 @@ const Footer = () => {
                     <List disablePadding>
                       {item.submenu.map((items, index) => (
                         <ListItem disablePadding key={index}>
-                          <Link href={items.route}>{items.name}</Link>
+                          <p>
+                            <Link href={items.route}>{items.name}</Link>
+                          </p>
                         </ListItem>
                       ))}
                     </List>

@@ -26,7 +26,9 @@ export default function CommonCart({ linkPath, imgPath, textMain }: cartProps) {
             />
           </Link>
         </figure>
-        <Link href={linkPath}>{textMain}</Link>
+        <h3>
+          <Link href={linkPath}>{textMain}</Link>
+        </h3>
       </Box>
     </CommonCartWrapper>
   );
