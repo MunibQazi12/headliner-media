@@ -84,7 +84,8 @@ export const FooterWrap = styled(Box)`
               margin-bottom: 8px;
             }
           }
-          h3 {
+            
+          p {
             font-weight: 700;
             font-size: 18px;
             color: ${primaryColors.white};

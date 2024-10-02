@@ -56,29 +56,26 @@ const navItems = [
         route: "/dry-ice-pellets?i=2"
       },
       {
-        name: "Dry Ice Blocks",
-        route: "/5-lb-dry-ice-blocks?i=2"
+        name: "High-Density Dry Ice Pellets",
+        route: "/High-Density Dry Ice Pellets"
       },
       {
-        name: "Airline Cut Dry Ice",
+        name: "5 lb. Dry Ice Blocks",
         route: "/aireline-cut-dry-ice?i=2"
       },
       {
-        name: "High-Density Dry Ice Pellets",
+        name: "Airline Cut Dry Ice",
         route: "/high-density-dry-ice-pellets?i=2"
       },
       {
-        name: "Dry Ice Delivery",
+        name: "Custom Cut Dry Ice",
         route: "#"
       },
       {
-        name: "Dry Ice Distribution",
+        name: "Distribution Centers",
         route: "#"
       },
-      {
-        name: "Emergency Dry Ice",
-        route: "#"
-      }
+    
     ]
   },
   {
@@ -89,7 +86,7 @@ const navItems = [
         route: "#"
       },
       {
-        name: "Dry Ice Hazards",
+        name: "Carbon Ice",
         route: "#"
       },
       {
@@ -108,10 +105,7 @@ const navItems = [
         name: "Transporting Dry Ice",
         route: "#"
       },
-      {
-        name: "Carbon Ice",
-        route: "#"
-      }
+     
     ]
   }
 ];
@@ -134,9 +128,7 @@ const Footer = () => {
                   />
                 </Link>
                 <Typography variant="body1">
-                  Emory provides exceptional dry ice products delivered to you,
-                  along a variety of tier-1 dry ice services made available to
-                  commercial and industrial businesses throughout the US.
+                  Emory provides exceptional dry ice products delivered to you, along a variety of tier-1 dry ice supply services made available to commercial and industrial businesses throughout the US.
                 </Typography>
                 <List disablePadding className="listPhone">
                   <ListItem disablePadding>
