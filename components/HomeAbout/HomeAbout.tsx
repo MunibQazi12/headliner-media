@@ -30,11 +30,13 @@ const HomeAbout = () => {
           <Grid container spacing={2}>
             {listCardData.map((item, index) => (
               <Grid item lg={3} md={6} xs={12} key={index}>
+               
                 <CommonCart
                   linkPath={item.linkPath}
                   imgPath={item.imgPath}
                   textMain={item.textMain}
                 />
+                
               </Grid>
             ))}
           </Grid>

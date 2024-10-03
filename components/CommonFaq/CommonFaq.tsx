@@ -51,7 +51,7 @@ export default function CommonFaq({ accordiondata }: accordionProps) {
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                   >
-                    <Typography>{item.titleMain}</Typography>
+                    <Typography variant="h2">{item.titleMain}</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography>{item.subTitle}</Typography>
