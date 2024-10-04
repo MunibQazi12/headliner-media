@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://emory-frontend.vercel.app/sitemap.xml
