@@ -23,6 +23,8 @@ const SeoSecndSection = ({ meta_heading }: SeoSecndSection) => {
           comprehensive coverage, and customer service.
         </Typography>
         <Box className="deliveredProduct">
+
+          
           <CommonHeading
             borderHeading={
               meta_heading || "Affordable Dry Ice Delivery in Philadelphia, PA"
