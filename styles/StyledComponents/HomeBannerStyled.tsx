@@ -21,6 +21,7 @@ export const HomeBannerStyled = styled(Stack)`
     padding-top: 12px;
   }
   .bannerHeading {
+    margin-top : 30px;
     h1 {
       text-transform: inherit;
        font-size: 5.8vw;
