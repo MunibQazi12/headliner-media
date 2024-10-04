@@ -47,7 +47,7 @@ export const CommonFaqWrapper = styled(Box)`
           }
           .MuiAccordionSummary-content {
             margin: 0;
-            p {
+            h2 {
               font-size: 24px;
               font-weight: 700;
               color: ${primaryColors.primary};

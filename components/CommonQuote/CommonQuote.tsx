@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 
 const CommonQuoteStyled = styled(Stack)`
   .quoteWrap {
+  margin-top : 30px;
     p {
       font-size: 40px;
       font-weight: 700;
@@ -25,7 +26,7 @@ const CommonQuoteStyled = styled(Stack)`
       }
     }
     .submitWrap {
-      max-width: 883px;
+      max-width: 800px;
       border: 1px solid ${primaryColors?.color283653};
       padding: 9px;
       border-radius: 10px;
@@ -39,8 +40,7 @@ const CommonQuoteStyled = styled(Stack)`
         border: none;
         padding-left: 10px;
         color: ${primaryColors?.black};
-        max-width: 649px;
-        flex-basis: 649px;
+        max-width: 555px;
         font-size: 20px;
 
         @media (max-width: 1399px) {
@@ -60,8 +60,6 @@ const CommonQuoteStyled = styled(Stack)`
         }
       }
       button {
-        max-width: calc(100% - 649px);
-        flex-basis: calc(100% - 649px);
         padding: 14px 14px;
 
         @media (max-width: 599px) {
