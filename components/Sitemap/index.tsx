@@ -9,121 +9,271 @@ import CommonHeading from "../CommonHeading/CommonHeading";
 const navItems = [
   {
     title: "Company",
-    submenu: [
+    "submenu": [
       {
-        name: "About Us",
-        route: "/about"
+        "name": "Home",
+        "route": "/home"
       },
       {
-        name: "FAQs",
-        route: "/faq"
+        "name": "About",
+        "route": "/about"
       },
       {
-        name: "Why Us?",
-        route: "/why-us"
+        "name": "FAQs",
+        "route": "/faq"
       },
       {
-        name: "Industries",
-        route: "/industries"
+        "name": "Why Us?",
+        "route": "/why-us"
       },
       {
-        name: "Services",
-        route: "#"
+        "name": "Industries",
+        "route": "/industries"
       },
       {
-        name: "Contact Us",
-        route: "/contact"
+        "name": "Dry Ice Delivery",
+        "route": "/dry-ice-delivery"
+      },
+      {
+        "name": "Dry Ice Distribution",
+        "route": "/dry-ice-distribution"
+      },
+      {
+        "name": "Contact",
+        "route": "/contact"
       }
     ]
   },
   {
-    title: "Dry Ice",
-    submenu: [
+    title: "Dry Ice Supplies",
+    "submenu": [
       {
-        name: "Dry Ice Pellets",
-        route: "/dry-ice-pellets?i=2"
+        "name": "Dry Ice",
+        "route": "/dry-ice-pellets"
       },
       {
-        name: "High-Density Dry Ice Pellets",
-        route: "/High-Density Dry Ice Pellets"
+        "name": "Dry Ice Pellets",
+        "route": "/dry-ice-pellets"
       },
       {
-        name: "5 lb. Dry Ice Blocks",
-        route: "/aireline-cut-dry-ice?i=2"
+        "name": "High-Density Dry Ice Pellets",
+        "route": "/dry-ice-high-density-pellets"
       },
       {
-        name: "Airline Cut Dry Ice",
-        route: "/high-density-dry-ice-pellets?i=2"
+        "name": "5 lb. Dry Ice Blocks",
+        "route": "/dry-ice-5-lb-blocks"
       },
       {
-        name: "Custom Cut Dry Ice",
-        route: "#"
+        "name": "Airline Cut Dry Ice",
+        "route": "/dry-ice-airline-cut"
       },
       {
-        name: "Distribution Centers",
-        route: "#"
-      },
-    
+        "name": "Emergency Dry Ice",
+        "route": "/dry-ice-emergency"
+      }
     ]
+
   },
   {
     title: "Industries",
-    submenu: [
+    "submenu": [
       {
-        name: "Dry Ice Safety 101",
-        route: "#"
+        "name": "Dry Ice for Agriculture",
+        "route": "/dry-ice-for-agriculture"
       },
       {
-        name: "Carbon Ice",
-        route: "#"
+        "name": "Dry Ice for Airlines",
+        "route": "/dry-ice-for-airlines"
       },
       {
-        name: "Dry Ice Melting Temperature",
-        route: "#"
+        "name": "Dry Ice for Education",
+        "route": "/dry-ice-for-education"
       },
       {
-        name: "Dry Ice Blasting",
-        route: "#"
+        "name": "Dry Ice Food & Beverage",
+        "route": "/dry-ice-for-food-beverage"
       },
       {
-        name: "Dry Ice Sublimation",
-        route: "#"
+        "name": "Dry Ice for Food Delivery",
+        "route": "/dry-ice-for-food-delivery"
       },
       {
-        name: "Transporting Dry Ice",
-        route: "#"
+        "name": "Dry Ice for Food Processing",
+        "route": "/dry-ice-for-food-processing"
       },
-     
+      {
+        "name": "Dry Ice for Healthcare",
+        "route": "/dry-ice-for-healthcare"
+      },
+      {
+        "name": "Dry Ice for Industrial Manufacturing",
+        "route": "/dry-ice-for-industrial-manufacturing"
+      },
+      {
+        "name": "Dry Ice for Meat Processing",
+        "route": "/dry-ice-for-meat-processing"
+      },
+      {
+        "name": "Dry Ice for Oil & Gas",
+        "route": "/dry-ice-for-oil-gas"
+      },
+      {
+        "name": "Dry Ice for Pharmaceuticals",
+        "route": "/dry-ice-for-pharmaceuticals"
+      },
+      {
+        "name": "Dry Ice for Retailers",
+        "route": "/dry-ice-for-retailers"
+      }
     ]
   },
   {
     title: "Resources",
-    submenu: [
+    "submenu": [
       {
-        name: "Dry Ice Safety 101",
-        route: "#"
+        "name": "Carbon Ice",
+        "route": "/dry-ice-carbon-ice"
       },
       {
-        name: "Carbon Ice",
-        route: "#"
+        "name": "Dry Ice Blasting",
+        "route": "/dry-ice-blasting"
       },
       {
-        name: "Dry Ice Melting Temperature",
-        route: "#"
+        "name": "Dry Ice Blasting for Automotive Restoration",
+        "route": "/dry-ice-blasting-automotive-restoration"
       },
       {
-        name: "Dry Ice Blasting",
-        route: "#"
+        "name": "Dry Ice Blasting for Industrial Facilities",
+        "route": "/dry-ice-blasting-industrial-facilities"
       },
       {
-        name: "Dry Ice Sublimation",
-        route: "#"
+        "name": "Dry Ice Blasting for Paint Removal",
+        "route": "/dry-ice-blasting-paint-removal"
       },
       {
-        name: "Transporting Dry Ice",
-        route: "#"
+        "name": "Dry Ice Blasting for Rust Removal",
+        "route": "/dry-ice-blasting-rust-removal"
       },
-     
+      {
+        "name": "Dry Ice Cleaning Car Interiors",
+        "route": "/dry-ice-cleaning-car-interiors"
+      },
+      {
+        "name": "Dry Ice Cleaning Home Furniture & Appliances",
+        "route": "/dry-ice-cleaning-home-furniture-appliances"
+      },
+      {
+        "name": "Dry Ice Cleaning for Maritime",
+        "route": "/dry-ice-cleaning-maritime"
+      },
+      {
+        "name": "Dry Ice Cleaning Supermarkets",
+        "route": "/dry-ice-cleaning-supermarkets"
+      },
+      {
+        "name": "Dry Ice Disposal Tips",
+        "route": "/dry-ice-disposal-tips"
+      },
+      {
+        "name": "Dry Ice for Automotive Detailing",
+        "route": "/dry-ice-automotive-detailing"
+      },
+      {
+        "name": "Dry Ice for Camping",
+        "route": "/dry-ice-camping"
+      },
+      {
+        "name": "Dry Ice for Cocktails",
+        "route": "/dry-ice-cocktails"
+      },
+      {
+        "name": "Dry Ice for Events",
+        "route": "/dry-ice-events"
+      },
+      {
+        "name": "Dry Ice for Food Displays",
+        "route": "/dry-ice-food-displays"
+      },
+      {
+        "name": "Dry Ice for Halloween Parties",
+        "route": "/dry-ice-halloween-parties"
+      },
+      {
+        "name": "Dry Ice for Laboratory Use",
+        "route": "/dry-ice-laboratory-use"
+      },
+      {
+        "name": "Dry Ice for Long-term Food Storage & Preservation",
+        "route": "/dry-ice-long-term-food-storage-preservation"
+      },
+      {
+        "name": "Dry Ice for Mold Remediation",
+        "route": "/dry-ice-mold-remediation"
+      },
+      {
+        "name": "Dry Ice for Power Outages",
+        "route": "/dry-ice-power-outages"
+      },
+      {
+        "name": "Dry Ice for Restaurants",
+        "route": "/dry-ice-restaurants"
+      },
+      {
+        "name": "Dry Ice for Shipping Medicine",
+        "route": "/dry-ice-shipping-medicine"
+      },
+      {
+        "name": "Dry Ice for Shipping Perishables",
+        "route": "/dry-ice-shipping-perishables"
+      },
+      {
+        "name": "Dry Ice for Theatrical Events",
+        "route": "/dry-ice-theatrical-events"
+      },
+      {
+        "name": "Dry Ice Hazards",
+        "route": "/dry-ice-hazards"
+      },
+      {
+        "name": "Dry Ice Manufacturing Process",
+        "route": "/dry-ice-manufacturing-process"
+      },
+      {
+        "name": "Dry Ice Melting Temperature",
+        "route": "/dry-ice-melting-temperature"
+      },
+      {
+        "name": "Dry Ice Packaging Tips",
+        "route": "/dry-ice-packaging-tips"
+      },
+      {
+        "name": "Dry Ice Safety",
+        "route": "/dry-ice-safety"
+      },
+      {
+        "name": "Dry Ice Sublimation",
+        "route": "/dry-ice-sublimation"
+      },
+      {
+        "name": "Dry Ice vs Gel Packs",
+        "route": "/dry-ice-vs-gel-packs"
+      },
+      {
+        "name": "Dry Ice vs Liquid Nitrogen",
+        "route": "/dry-ice-vs-liquid-nitrogen"
+      },
+      {
+        "name": "Making Dry Ice",
+        "route": "/making-dry-ice"
+      },
+      {
+        "name": "Making Ice Cream with Dry Ice",
+        "route": "/making-ice-cream-with-dry-ice"
+      },
+      {
+        "name": "Transporting Dry Ice",
+        "route": "/transporting-dry-ice"
+      }
     ]
   }
 ];
@@ -138,18 +288,18 @@ function index() {
         </Box>
         <Box className=" headingSection ">
 
-        {navItems.map((item) => (
-                <Box key={`footer-${item}`}>
-                  <Box >
-                   <Typography className='titletxt'>{item.title}</Typography>
-                      {item.submenu.map((items) => (
-                        <Box key={`${item}`}>
-                        <Link className='customLinks' href={items.route}>{items.name}</Link>
-                      </Box>
-                      ))}
+          {navItems.map((item) => (
+            <Box className="linkListElements" key={`footer-${item}`}>
+              <Box >
+                <Typography className='titletxt'>{item.title}</Typography>
+                {item.submenu.map((items) => (
+                  <Box key={`${item}`}>
+                    <Link className='customLinks' href={items.route}>{items.name}</Link>
                   </Box>
-                </Box>
-              ))}
+                ))}
+              </Box>
+            </Box>
+          ))}
 
 
           {/* <Box>
@@ -170,7 +320,7 @@ function index() {
       
 
           </Box> */}
-{/* 
+          {/* 
           <Box>
             <Typography className='titletxt'>Dry Ice Supplies </Typography>
             <Link className='customLinks' href="/" >Home</Link>

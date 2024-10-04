@@ -19,8 +19,12 @@ export const SiteMapWrapper = styled(Box)`
     .headingSection {
         display :flex;
         justify-content : space-between;
+        flex-wrap : wrap;
         margin : 80px auto;
-        max-width : 1440px;
+        max-width : 1560px;
+    }
+    .linkListElements {
+        margin-bottom : 40px;
     }
     .customLinks {
         color: ${primaryColors.primary};
