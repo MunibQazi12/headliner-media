@@ -3,8 +3,12 @@ import styled from "@emotion/styled";
 import Stack from "@mui/material/Stack";
 
 export const HomeBannerStyled = styled(Stack)`
+ 
   padding-top: 60px;
+  justify-content : center;
+  height: calc(100vh - 124px);  
   text-align: center;
+  
   @media (max-width: 1499px) {
     padding-top: 60px;
   }
@@ -13,6 +17,7 @@ export const HomeBannerStyled = styled(Stack)`
   }
   @media (max-width: 1199px) {
     padding-top: 36px;
+    
   }
   @media (max-width: 899px) {
     padding-top: 24px;

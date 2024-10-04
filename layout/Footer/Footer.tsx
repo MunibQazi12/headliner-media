@@ -198,7 +198,7 @@ const Footer = () => {
                 <Link href="#">Privacy Policy </Link>
               </ListItem>
               <ListItem disablePadding>
-                <Link href="#">Sitemap </Link>
+                <Link href="/sitemap">Sitemap </Link>
               </ListItem>
             </List>
             <Button type="button" className="fixedBtn">

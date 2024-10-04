@@ -7,7 +7,23 @@ import { useEffect, useRef, useState } from "react";
 
 const CommonQuoteStyled = styled(Stack)`
   .quoteWrap {
-    margin-top : 40px;
+      padding-top: 60px;
+    
+  @media (max-width: 1499px) {
+    padding-top: 60px;
+  }
+  @media (max-width: 1399px) {
+    padding-top: 48px;
+  }
+  @media (max-width: 1199px) {
+    padding-top: 36px;
+  }
+  @media (max-width: 899px) {
+    padding-top: 24px;
+  }
+  @media (max-width: 599px) {
+    padding-top: 12px;
+  }
     p {
       font-size: 40px;
       font-weight: 700;
@@ -119,10 +135,10 @@ const CommonQuote = () => {
           justifyContent="space-between"
           className="submitWrap"
         >
-          <input 
+          <input
             ref={inputRef}
-            type="text" 
-            placeholder="Enter Address..." 
+            type="text"
+            placeholder="Enter Address..."
             onChange={() => setAddress({ place_id: "", formatted_address: "" })}
           />
           <CustomButtonPrimary variant="contained" color="secondary">
