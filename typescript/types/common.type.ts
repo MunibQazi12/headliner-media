@@ -78,7 +78,7 @@ type userData = {
   cover_picture?: string;
 };
 
-type seoData = {
+type seoDataIndividual = {
   id: number;
   slug: string;
   meta_title: string;
@@ -120,6 +120,83 @@ type ProductData = {
   updated_at: Date;
   x_card_description: string;
   x_card_title: string;
+};
+
+type ResourcesData = {
+  id: number;
+  title: string;
+  thumbnail: string;
+  resource_desc: string;
+  status: string;
+  slug: string;
+  h1: string;
+  meta_title: string;
+  meta_description: string;
+  featured_image: string | null;
+  open_graph_title: string;
+  open_graph_description: string;
+  open_graph_url: string | null;
+  open_graph_image: string | null;
+  schema: string | null;
+  x_card_title: string;
+  x_card_description: string;
+  canonical_url: string | null;
+  created_at: string; // ISO 8601 format
+  updated_at: string; // ISO 8601 format
+  open_graph_image_url: string;
+  featured_image_url: string;
+};
+
+type FooterSettingsData = {
+  id: number;
+  key: string;
+  value: string;
+  created_at: string; // ISO 8601 format
+  updated_at: string; // ISO 8601 format
+};
+
+type FAQs = {
+  id: number;
+  question: string;
+  answer: string;
+  active: string; // Assuming 'active' is a string, if it's meant to be a boolean, change the type to boolean
+  created_at: string; // ISO 8601 format
+  updated_at: string; // ISO 8601 format
+};
+
+type SEO_FAQs = {
+  id: number;
+  slug: string;
+  question: string;
+  answer: string;
+  created_at: string | null; // ISO 8601 format or null
+  updated_at: string | null; // ISO 8601 format or null
+};
+
+type seoData = {
+  faq: SEO_FAQs;
+  seo: seoDataIndividual;
+};
+
+type SEO_PagesData = {
+  id: number;
+  meta_title: string;
+  meta_description: string;
+  slug: string;
+  p_tag: string;
+  h1_tag: string;
+  h2_tag: string;
+  city: string;
+  state: string;
+  state_code: string;
+  zip_codes: string;
+  type: string;
+  latitude: number;
+  longitude: number;
+  created_at: string | null; // ISO 8601 format or null
+  updated_at: string | null; // ISO 8601 format or null
+  status: number;
+  open_graph_image_url: string;
 };
 
 type IndustryData = {
@@ -170,7 +247,9 @@ type AddressInputType = {
 export type {
   AddressInputType,
   CommonButtonType,
-  DistanceInputType, IndustryData, LoadingType,
+  DistanceInputType,
+  IndustryData,
+  LoadingType,
   ProductAttributeData,
   ProductData,
   SignInFormValues,
@@ -178,6 +257,10 @@ export type {
   seoData,
   userData,
   ProfileUpdate,
-  ChangePassword
+  ChangePassword,
+  ResourcesData,
+  FooterSettingsData,
+  SEO_PagesData,
+  FAQs,
+  SEO_FAQs,
 };
-
