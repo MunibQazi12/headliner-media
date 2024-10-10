@@ -69,7 +69,7 @@ export default function ClientTestimonial() {
               <Box className="imgWRap">
                 <Box className="singleItemImg">
                   <Image
-                    src={assest.lastBtnImg1}
+                    src={assest.lastBtmImg1}
                     alt="logo-image1"
                     width={600}
                     height={600}
@@ -77,7 +77,7 @@ export default function ClientTestimonial() {
                 </Box>
                 <Box className="singleItemImg">
                   <Image
-                    src={assest.lastBtnImg2}
+                    src={assest.lastBtmImg2}
                     alt="logo-image2"
                     width={600}
                     height={600}
