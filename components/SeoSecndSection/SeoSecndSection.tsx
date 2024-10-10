@@ -20,9 +20,12 @@ const SeoSecndSection = ({ meta_heading }: SeoSecndSection) => {
         <Typography variant="h2" className="learnText">
           Learn About Emory&apos;s Dry Ice Products & Delivery Services
         </Typography>
-        <Box className="deliveredProduct">
 
-          
+        <Typography variant="body1" className="cmnTextWrap">
+          We are deeply committed to providing exceptional dry ice products,
+          comprehensive coverage, and customer service.
+        </Typography>
+        <Box className="deliveredProduct">
           <CommonHeading
             borderHeading={
               meta_heading || "Affordable Dry Ice Delivery in Philadelphia, PA"
