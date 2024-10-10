@@ -16,7 +16,7 @@ axiosInstance.interceptors.request.use(async (config) => {
   const session : any = await fetch('/api/auth/session').then((res) => res.json());
 
   let token = null;
-  if(session){
+  if(session.user){
     token = session.user.accessToken;
   }
   if (token && !!config.headers) {

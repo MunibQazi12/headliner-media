@@ -16,7 +16,10 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useResources } from "@/hooks/react-query/useResources";
+import { useAppSelector } from "@/hooks/redux/useAppSelector";
+import { useFooterSettings } from "@/hooks/react-query/useFooterSettings";
+import { useProducts } from "@/hooks/react-query/useProduct";
 
 const navItems = [
   {
@@ -47,71 +50,90 @@ const navItems = [
         route: "/contact"
       }
     ]
-  },
-  {
-    title: "Dry Ice",
-    submenu: [
-      {
-        name: "Dry Ice Pellets",
-        route: "/dry-ice-pellets?i=2"
-      },
-      {
-        name: "High-Density Dry Ice Pellets",
-        route: "/High-Density Dry Ice Pellets"
-      },
-      {
-        name: "5 lb. Dry Ice Blocks",
-        route: "/aireline-cut-dry-ice?i=2"
-      },
-      {
-        name: "Airline Cut Dry Ice",
-        route: "/high-density-dry-ice-pellets?i=2"
-      },
-      {
-        name: "Custom Cut Dry Ice",
-        route: "#"
-      },
-      {
-        name: "Distribution Centers",
-        route: "#"
-      },
-    
-    ]
-  },
-  {
-    title: "Resources",
-    submenu: [
-      {
-        name: "Dry Ice Safety 101",
-        route: "#"
-      },
-      {
-        name: "Carbon Ice",
-        route: "#"
-      },
-      {
-        name: "Dry Ice Melting Temperature",
-        route: "#"
-      },
-      {
-        name: "Dry Ice Blasting",
-        route: "#"
-      },
-      {
-        name: "Dry Ice Sublimation",
-        route: "#"
-      },
-      {
-        name: "Transporting Dry Ice",
-        route: "#"
-      },
-     
-    ]
   }
+  // {
+  //   title: "Dry Ice",
+  //   submenu: [
+  //     {
+  //       name: "Dry Ice Pellets",
+  //       route: "/dry-ice-pellets?i=2"
+  //     },
+  //     {
+  //       name: "Dry Ice Blocks",
+  //       route: "/5-lb-dry-ice-blocks?i=2"
+  //     },
+  //     {
+  //       name: "Airline Cut Dry Ice",
+  //       route: "/aireline-cut-dry-ice?i=2"
+  //     },
+  //     {
+  //       name: "High-Density Dry Ice Pellets",
+  //       route: "/high-density-dry-ice-pellets?i=2"
+  //     },
+  //     {
+  //       name: "Dry Ice Delivery",
+  //       route: "#"
+  //     },
+  //     {
+  //       name: "Dry Ice Distribution",
+  //       route: "#"
+  //     },
+  //     {
+  //       name: "Emergency Dry Ice",
+  //       route: "#"
+  //     }
+  //   ]
+  // }
+  // ,
+  // {
+  //   title: "Resources",
+  //   submenu: [
+  //     {
+  //       name: "Dry Ice Safety 101",
+  //       route: "#"
+  //     },
+  //     {
+  //       name: "Dry Ice Hazards",
+  //       route: "#"
+  //     },
+  //     {
+  //       name: "Dry Ice Melting Temperature",
+  //       route: "#"
+  //     },
+  //     {
+  //       name: "Dry Ice Blasting",
+  //       route: "#"
+  //     },
+  //     {
+  //       name: "Dry Ice Sublimation",
+  //       route: "#"
+  //     },
+  //     {
+  //       name: "Transporting Dry Ice",
+  //       route: "#"
+  //     },
+  //     {
+  //       name: "Carbon Ice",
+  //       route: "#"
+  //     }
+  //   ]
+  // }
 ];
 
 const Footer = () => {
-  const router = useRouter();
+  useResources();
+  useFooterSettings();
+  useProducts();
+  const resources =
+    useAppSelector((state) => state.ResourcesSlice.resources) || [];
+  const footerSettings =
+    useAppSelector((state) => state.FooterSettingsSlice.footerSettings) || [];
+
+  const products = useAppSelector((state) => state.productSlice.products) || [];
+  const grabResult = (key: string) => {
+    return footerSettings.filter((footer_item) => footer_item.key === key);
+  };
+
   return (
     <FooterWrap>
       <Box className="footerTopMain">
@@ -128,33 +150,47 @@ const Footer = () => {
                   />
                 </Link>
                 <Typography variant="body1">
-                  Emory provides exceptional dry ice products delivered to you, along a variety of tier-1 dry ice supply services made available to commercial and industrial businesses throughout the US.
+                  {grabResult("mission_statement")[0]?.value || ""}
                 </Typography>
                 <List disablePadding className="listPhone">
                   <ListItem disablePadding>
                     <Typography>
-                      Sales: <Link href="tel:8667099045">866-709-9045</Link>
+                      Sales:{" "}
+                      <Link
+                        href={`tel:${
+                          grabResult("sales_contactt")[0]?.value || ""
+                        }`}
+                      >
+                        {grabResult("sales_contact")[0]?.value || ""}
+                      </Link>
                     </Typography>
                   </ListItem>
                   <ListItem disablePadding>
                     <Typography>
-                      Support: <Link href="tel:8667099055">866-709-9055</Link>
+                      Support:{" "}
+                      <Link
+                        href={`tel:${
+                          grabResult("support_contact")[0]?.value || ""
+                        }`}
+                      >
+                        {grabResult("support_contact")[0]?.value || ""}
+                      </Link>
                     </Typography>
                   </ListItem>
                 </List>
                 <List disablePadding className="socialIcon">
                   <ListItem disablePadding>
-                    <Link href="#">
+                    <Link href={grabResult("facebook_link")[0]?.value || ""}>
                       <FacebookIcon />
                     </Link>
                   </ListItem>
                   <ListItem disablePadding>
-                    <Link href="#">
+                    <Link href={grabResult("twitter_link")[0]?.value || ""}>
                       <TwiterIcon />
                     </Link>
                   </ListItem>
                   <ListItem disablePadding>
-                    <Link href="#">
+                    <Link href={grabResult("linkedin_link")[0]?.value || ""}>
                       <LinkedInIcon />
                     </Link>
                   </ListItem>
@@ -180,6 +216,48 @@ const Footer = () => {
                   </Box>
                 </Box>
               ))}
+
+              <Box className="singleMenuLink">
+                <Box className="wrapper_footerMenu">
+                  <Typography variant="h3" className="titletxt">
+                    Dry Ice
+                  </Typography>
+                  <List disablePadding>
+                    {products.map((items, index) => (
+                      <ListItem disablePadding key={index}>
+                        <Link href={items.slug}>{items.name}</Link>
+                      </ListItem>
+                    ))}
+
+                    <ListItem disablePadding>
+                      <Link href="/custom-cut-dry-ice/">
+                        Custom Cut Dry Ice
+                      </Link>
+                    </ListItem>
+
+                    <ListItem disablePadding>
+                      <Link href="/distribution-centers/">
+                        Distribution Centers
+                      </Link>
+                    </ListItem>
+                  </List>
+                </Box>
+              </Box>
+
+              <Box className="singleMenuLink">
+                <Box className="wrapper_footerMenu">
+                  <Typography variant="h3" className="titletxt">
+                    Resources
+                  </Typography>
+                  <List disablePadding>
+                    {resources.slice(0, 6).map((items, index) => (
+                      <ListItem disablePadding key={index}>
+                        <Link href={items.slug}>{items.title}</Link>
+                      </ListItem>
+                    ))}
+                  </List>
+                </Box>
+              </Box>
             </Box>
           </Box>
         </Container>

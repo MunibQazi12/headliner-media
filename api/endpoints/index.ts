@@ -15,13 +15,19 @@ export const endpoints = {
     login: "login",
     profileDetails: "my-profile",
     profileUpdate: "personal-details-update",
-    changePassword: "update-password",
+    changePassword: "update-password"
   },
   cms: {
     about: "aboutpolicy/details",
     faq: "faq/all"
   },
-  seo: (slug: string) => `seo/${slug}`,
+  faq: {
+    fetchAll: "get-faq"
+  },
+  seo: {
+    fetchAll: "seo-pages",
+    fetchOne: (slug: string) => `seo/${slug}`
+  },
   products: {
     fetchAll: "products",
     fetchOne: (slug: string) => `products/${slug}`,
@@ -37,7 +43,13 @@ export const endpoints = {
   },
   addresses: "addresses",
   addressDelete: "delete-address",
-  payment: { paymentMethod: "payment/payment-method" }
+  payment: { paymentMethod: "payment/payment-method" },
+  resources: {
+    fetchAll: "resources"
+  },
+  footerSettings: {
+    fetchAll: "footer-settings"
+  }
 };
 
 export const sucessNotificationEndPoints = [

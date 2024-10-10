@@ -62,6 +62,14 @@ export const SeoTopMainWrapper = styled(Box)`
               font-size: 20px;
             }
           }
+          .inputField{
+            width: 100%;
+            max-width: 690px !important;
+             .MuiInputBase-root {
+              padding: 14px 16px 14px 16px !important;
+             }
+          }
+
           .formOnly {
             position: relative;
             max-width : 750px;

@@ -2,12 +2,12 @@ import assest from "../assest";
 
 export const whyChooseCartList = [
   {
-    imgPath: assest.listIconHome1,
-    textTitle: "Compliant"
-  },
-  {
     imgPath: assest.listIconHome2,
     textTitle: "Eco-friendly"
+  },
+  {
+    imgPath: assest.listIconHome1,
+    textTitle: "Compliant"
   },
   {
     imgPath: assest.listIconHome3,

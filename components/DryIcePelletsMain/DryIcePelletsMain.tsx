@@ -247,7 +247,7 @@ export default function DryIcePelletsMain({ product, product_attribute }: any) {
                 <Box className="imageWrapMain">
                   <figure>
                     <Image
-                      src={product.product_image_url}
+                      src={product?.product_image_url}
                       alt="image-dryice"
                       width={800}
                       height={800}
@@ -258,7 +258,7 @@ export default function DryIcePelletsMain({ product, product_attribute }: any) {
 
               <Grid item lg={6} md={12} xs={12}>
                 <Box className="productMainInfo">
-                  <Typography variant="h2">{product.name}</Typography>
+                  <Typography variant="h2">{product?.name}</Typography>
 
                   <Box className="sizeCart">
                     <Typography variant="body1" className="title">
@@ -267,10 +267,10 @@ export default function DryIcePelletsMain({ product, product_attribute }: any) {
                     <Box className="radionList">
                       <RadioGroup
                         aria-labelledby="demo-radio-buttons-group-label"
-                        defaultValue={product_attribute[0]?.id}
+                        // defaultValue={product_attribute[0]?.id}
                         name="radio-buttons-group"
                       >
-                        {product_attribute.map((item: any) => (
+                        {product_attribute?.map((item: any) => (
                           <FormControlLabel
                             value={item.id}
                             control={<Radio />}
@@ -385,7 +385,7 @@ export default function DryIcePelletsMain({ product, product_attribute }: any) {
                 <ItemGroupTitle>Price</ItemGroupTitle>
                 <ItemGroupDesc>
                   $
-                  {(product_attribute.find(
+                  {(product_attribute?.find(
                     ({ id }: any) => id === selectedAttribute
                   )?.price ?? 0) * quantity}{" "}
                   {fee > 0 && `+ $${fee} (fee)`}
