@@ -18,6 +18,19 @@ export const CommonFaqWrapper = styled(Box)`
     @media (max-width: 599px) {
       padding-bottom: 30px;
     }
+    .faqQuestion{
+      font-size: 22px;
+      font-weight: 700;
+      @media (max-width: 1399px){
+        font-size: 20px;
+      }
+      @media (max-width: 899px){
+        font-size: 18px;
+      }
+      @media (max-width: 599px){
+        font-size: 16px;
+      }
+    }
     .wrapper_inner {
       position: relative;
       .bigHeading {

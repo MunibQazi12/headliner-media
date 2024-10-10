@@ -23,7 +23,7 @@ export default function DryIceDeliveryTopMain({
         <Container fixed className="cus_container">
           <Box className="wrapper_mainInfo">
             <Grid container spacing={3} alignItems="center">
-              <Grid item lg={8} xs={12}>
+              <Grid item lg={6} xs={12}>
                 <Box className="wrapper_textInfo">
                   <Typography variant="h1">
                     {heading ||
@@ -51,7 +51,7 @@ export default function DryIceDeliveryTopMain({
                   </Box>
                 </Box>
               </Grid>
-              <Grid item lg={4} xs={12}>
+              <Grid item lg={5} xs={12} sx={{marginLeft:'auto'}}>
                 <Box className="wrapper_img">
                   <Image
                     src={assest.seoMainImgForDelivery}

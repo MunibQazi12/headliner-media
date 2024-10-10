@@ -49,7 +49,7 @@ export default function SEOFaqs(props: I_AccordionProps) {
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                   >
-                    <Typography>{item.question}</Typography>
+                    <Typography className="faqQuestion">{item.question}</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography>{item.answer}</Typography>
