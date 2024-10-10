@@ -11,7 +11,6 @@ const useFooterSettings = () => {
     queryKey: ["footer-settings"],
     queryFn: GetFooterSettings
   });
-
   useEffect(() => {
     if (footerSettings?.data) {
       if (footerSettings?.data?.status === 401) {
