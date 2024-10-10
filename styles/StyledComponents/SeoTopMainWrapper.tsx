@@ -66,8 +66,12 @@ export const SeoTopMainWrapper = styled(Box)`
             width: 100%;
             max-width: 690px !important;
              .MuiInputBase-root {
-              padding: 14px 16px 14px 16px !important;
+              padding: 12px 16px 12px 16px !important;
+               @media (max-width: 1199px) {
+               padding: 14px 16px 14px 16px !important;
+            }
              }
+           
           }
 
           .formOnly {
