@@ -39,20 +39,56 @@ export default function SeoTopMain({
                       {meta_description ||
                         "Where do you need dry ice delivered to in Philadelphia?"}
                     </Typography>
-                    <Box className="formOnly">
-                      <InputFieldCommon placeholder="Enter Address..." />
+                    <Box sx={{ 
+                      display: 'flex', 
+                      alignItems:'center', 
+                      gap:'10px 5px',
+                      flexWrap: { 
+                        xs: 'wrap', 
+                        sm: 'nowrap' 
+                      }}}>
+                      <Box sx={{height:'70px !important'}} 
+                      className="formOnly inputField">
+                        <InputFieldCommon  placeholder="Enter Address..." />
+                      </Box>
                       <CustomButtonPrimary
-                        variant="contained"
-                        color="secondary"
-                      >
-                        Get a Free Quote
-                      </CustomButtonPrimary>
+                          variant="contained"
+                          color="secondary"
+                          sx={{
+                            paddingBlock:'18.5px !important', 
+                            paddingInline:'24px', 
+                            whiteSpace:'nowrap',
+                            height:{
+                              xs:'50px',
+                              sm:'70px',
+                            },
+                            width:{
+                              width:'100%',
+                              sm:'unset',
+                            },
+                          }}
+                        >
+                          Get a Free Quote
+                        </CustomButtonPrimary>
                     </Box>
                   </Box>
                 </Box>
               </Grid>
               <Grid item lg={4} xs={12}>
-                <Box className="wrapper_img">
+                <Box sx={{
+                  width:'100%', 
+                  maxWidth:{
+                    md: '100%',
+                    lg: '380px',
+                    xl:'514px', 
+                  },
+                  marginLeft:'auto', 
+                  display:'flex', 
+                  margintop:{
+                    lg:'80px',
+                    xl:'14px',
+                  }
+                  }} className="wrapper_img">
                   <Image
                     src={assest.seoMainImg}
                     alt="banner-image"
