@@ -128,7 +128,16 @@ export default function Slug() {
         <Wrapper>
           <Head>
             <title>{seoData?.seo?.meta_title}</title>
-            <meta name="description" content={seoData?.seo?.meta_description} />
+            <meta
+              property="og:title"
+              content={seoData?.seo?.meta_title}
+              key="og-title"
+            />
+            <meta
+              property="og:description"
+              name="description"
+              content={seoData?.seo?.meta_description}
+            />
           </Head>
           <Box className="seoMainPage">
             <SeoTopMain

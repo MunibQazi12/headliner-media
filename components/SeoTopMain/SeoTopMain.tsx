@@ -54,7 +54,7 @@ export default function SeoTopMain({
               <Grid item lg={4} xs={12}>
                 <Box className="wrapper_img">
                   <Image
-                    src={assest.seoMainImg1}
+                    src={assest.seoMainImg}
                     alt="banner-image"
                     width={800}
                     height={800}

@@ -49,5 +49,6 @@ export default {
   mapImg4: "/assets/images/mapImg4.png",
   agricultureImg1: "/assets/images/agricultureImg1.png",
   seoMainImg1: "/assets/images/seoMainImg1.png",
+  seoMainImg: "/assets/images/seoMainImg.png",
   customDryIce1: "/assets/images/customDryIce1.png"
 };
